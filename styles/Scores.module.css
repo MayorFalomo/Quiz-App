@@ -1,0 +1,32 @@
+.container{
+    /* border: 2px red solid; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    height: 100vh;
+}
+
+.restartBtn{
+    font-size: 24px;
+    padding: 20px;
+    outline: none;
+    border: none;
+    transition: 0.4 ease;
+        /* background-color: rgb(51, 51, 175); */
+        color: black;
+        border-radius: 50px;
+        cursor: pointer;
+}
+.restartBtn button:hover{
+    background-color: transparent;
+        border: 1px blue solid;
+        transition: 0.4s ease;
+        color: black;
+        cursor: pointer;
+}
+
+.container p{
+    font-size: 20px;
+}

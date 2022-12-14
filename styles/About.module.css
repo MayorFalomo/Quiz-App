@@ -1,0 +1,32 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.light .container{
+    background-color: black;
+}
+.dark .container{
+    background-color: black;
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    width: 70%;
+}
+
+.main h1{
+    font-size: 50px;
+}
+
+.main p{
+    font-size: 24px;
+        line-height: 35px;
+}

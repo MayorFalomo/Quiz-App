@@ -1,0 +1,128 @@
+.container .profile{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    /* padding: 40px; */
+    /* border: 2px red solid; */
+}
+.mainProfile{
+    /* border: 2px blue solid; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.container .profilePic{
+    width: 100px;
+}
+.profilePic img{
+    border-radius: 50%;
+}
+
+.main{
+    /* height: 60vh; */
+    /* border: 3px yellow solid; */
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+}
+.list{
+    /* border: 2px red solid; */
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 80%;
+    padding: 40px;
+}
+.list1{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+    font-size: 24px;
+}
+.list1 button{
+    font-size: 24px;
+    border: none;
+    padding: 20px;
+    outline: none;
+    transition: 0.4s ease;
+        background-color: rgb(51, 51, 175);
+        color: #fff;
+        border-radius: 50px;
+}
+.list2{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+    border: none;
+    /* background-color: rgb(51, 51, 175); */
+}
+
+.list2 button{
+    font-size: 24px;
+    padding: 20px;
+    outline: none;
+    border: none;
+    transition: 0.4 ease;
+        background-color: rgb(51, 51, 175);
+        color: white;
+        border-radius: 50px;
+}
+
+.list1 button:hover{
+    background-color: transparent;
+        border: 1px blue solid;
+        transition: 0.4s ease;
+        color: black;
+        cursor: pointer;
+}
+.list2 button:hover{
+    background-color: transparent;
+     border: 1px blue solid;
+        transition: 0.4s ease;
+        color: black;
+        cursor: pointer;
+}
+
+/* #dark .list1  */
+.btnStyle{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 30px;
+    width: 90%;
+}
+
+.prev{
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+.next{
+    padding: 10px 30px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.list .list1 .flex {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    /* border: 7px red solid; */
+}
+.list .list2 .flexOption {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    /* border: 7px red solid; */
+}
