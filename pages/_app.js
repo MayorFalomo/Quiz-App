@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { ThemeProvider } from "next-themes";
 import { useTheme } from "next-themes";
 import "../styles/globals.css";
-import Layout from "./components/Layout";
+import Layout from "../components/Layout";
 import { AppContext } from "./helpers/helpers";
 
 function MyApp({ Component, pageProps }) {
