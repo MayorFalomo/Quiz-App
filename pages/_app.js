@@ -42,7 +42,7 @@ function MyApp({ Component, pageProps }) {
   };
 
   return (
-    <ThemeProvider value={{ theme, setTheme }}>
+    <ThemeProvider>
       <AppContext.Provider
         value={{
           isAuth,

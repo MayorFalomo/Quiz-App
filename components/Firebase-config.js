@@ -1,3 +1,13 @@
+import React from 'react'
+
+const Firebase = () => {
+  return (
+    <div>Firebase-config</div>
+  )
+}
+
+export default Firebase-config
+
 // import * as firebase from 'firebase';
 // import { initializeApp } from "firebase/app";
 // import { getAuth, GoogleAuthProvider } from "firebase/auth";

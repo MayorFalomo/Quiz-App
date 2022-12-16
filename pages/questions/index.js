@@ -109,7 +109,7 @@ export default function quiz({ questions }) {
     setChosenOption(newArray[3]);
   };
 
-  console.log(chosenOption);
+  // console.log(chosenOption);
 
   useEffect(() => {});
   if (!initialRenderComplete) {
@@ -184,8 +184,8 @@ export default function quiz({ questions }) {
           </div>
           <div className={styles.btnStyle}>
             <button
-              data-aos="fade-down"
-              data-aos-duration="2000"
+              // data-aos="fade-down"
+              // data-aos-duration="2000"
               onClick={decrease}
               className={styles.prev}
             >
@@ -201,8 +201,8 @@ export default function quiz({ questions }) {
             ) : (
               <button
                 onClick={increase}
-                data-aos="fade-down"
-                data-aos-duration="2500"
+                // data-aos="fade-down"
+                // data-aos-duration="2500"
                 className={styles.next}
               >
                 Next{" "}
@@ -214,8 +214,8 @@ export default function quiz({ questions }) {
               </button>
             ) : (
               <button
-                data-aos="fade-down"
-                data-aos-duration="3000"
+                // data-aos="fade-down"
+                // data-aos-duration="3000"
                 onClick={showAns}
                 className={styles.next}
               >

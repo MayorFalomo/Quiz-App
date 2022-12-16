@@ -65,8 +65,8 @@
     width: 21px;
     height:20px;
     position: absolute;
-    bottom: 1px;
-    left:2px;
+    bottom: 0px;
+    left:0px;
     transition: 0.5s ease;
     z-index: 99999999999;
 }
@@ -94,4 +94,26 @@
     cursor: pointer;
     font-size: 24px;
     gap: 10px;
+}
+
+@media (max-width: 620px) {
+    .container .header{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 5px;
+    }
+    
+}
+@media (max-width: 410px) {
+    .container{
+        /* border: 3px red solid;
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100vh;
+        width: 70%; */
+    }
+    
 }

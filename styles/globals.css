@@ -32,6 +32,10 @@ img{
     background-color:  #001219;
     color: white;
 }
+#dark body {
+    background-color:  #001219;
+    color: white;
+}
 #dark:hover li{
   color: white;
 }
