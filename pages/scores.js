@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React, { useContext, useEffect } from "react";
-import { AppContext } from "./helpers/helpers";
+import { AppContext } from "../helpers/helpers";
 import styles from "../styles/Scores.module.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
