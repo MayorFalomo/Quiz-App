@@ -22,10 +22,16 @@ const login = () => {
         }
         const profilePic = res.user.photoURL;
         const name = res.user.displayName;
-        const email = res.user.email;
-        localStorage.setItem("name", name);
-        localStorage.setItem("email", email);
-        localStorage.setItem("photoUrl", profilePic);
+      const email = res.user.email;
+      if (typeof window !== 'undefined') {
+        localStorage.setItem("name", name)
+      }
+      if (typeof window !== 'undefined') {
+        localStorage.setItem("email", email)
+      }
+      if (typeof window !== 'undefined') {
+        localStorage.setItem("photoUrl", profilePic)
+      }
       })
       .catch((err) => {
         console.log(err);
