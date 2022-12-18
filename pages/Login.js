@@ -14,29 +14,21 @@ const login = () => {
   const router = useRouter();
 
   const signInWithGoogle = () => {
-    signInWithPopup(auth, provider).then((res) => {
-      localStorage.setItem(isAuth, true);
-      setIsAuth(true);
-      if (isAuth == true) {
-          router.push("/");
-        }
-        const profilePic = res.user.photoURL;
-        const name = res.user.displayName;
-      const email = res.user.email;
-      if (typeof window !== 'undefined') {
-        localStorage.setItem("name", name)
-      }
-      if (typeof window !== 'undefined') {
-        localStorage.setItem("email", email)
-      }
-      if (typeof window !== 'undefined') {
-        localStorage.setItem("photoUrl", profilePic)
-      }
-      })
-      .catch((err) => {
+  signInWithPopup(auth, provider).then((res) => {
+    setIsAuth(true)
+    router.push('/')
+    const name = res.user.displayName;
+    const emails = res.user.email;
+    const profilePics = res.user.photoURL;
+    console.log(profilePics);
+     localStorage.setItem("name", name);
+     localStorage.setItem("email", emails);
+     localStorage.setItem("photoUrl", profilePics);
+  }).catch((err) => {
         console.log(err);
-    })
+      });
   }
+
   return (
     <div className={styles.container} >
       <div className={styles.main} >

@@ -10,28 +10,20 @@ function MyApp({ Component, pageProps }) {
   const [menu, setMenu] = useState(false);
   const [score, setScore] = useState(0);
   const [theme, setTheme] = useState();
-
-  // const { theme, setTheme } = useTheme();
-  // const getThemeInStorage = () => {
-  //   return JSON.parse(localStorage.getItem("theme"));
-  // };
+  const [names, setNames] = useState("")
 
   useEffect(() => {
     localStorage.setItem("theme", JSON.stringify(theme));
   }, [theme]);
 
   useEffect(() => {
-    // const getTheme = () => {
     if (localStorage) {
       localStorage.getItem("theme");
-      // setTheme(getThemeState);
     } else {
       console.log("errr");
     }
-    // useEffect(() => {
-    //   getTheme();
   }, []);
-  //, }, []);
+
 
   const [changed, setChanged] = useState(false);
 
@@ -56,6 +48,8 @@ function MyApp({ Component, pageProps }) {
           handleChange,
           score,
           setScore,
+          names,
+          setNames,
         }}
       >
         <Layout>

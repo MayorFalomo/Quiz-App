@@ -232,8 +232,6 @@ export const getStaticProps = async () => {
 
   // const data = req;
   const initialData = data.data;
-  // setTimeout(1000);
-  // clearTimeout();
   return {
     props: {
       questions: initialData,

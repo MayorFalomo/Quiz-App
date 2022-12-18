@@ -6,11 +6,16 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 const Profile = () => {
-  const { theme } = useContext(AppContext);
+  const { theme, } = useContext(AppContext);
   useEffect(() => {
     AOS.init();
     AOS.refresh();
   }, []);
+
+  if (typeof window !== 'undefined') {
+  // Perform localStorage action
+    const item = localStorage.getItem('name')
+}
   return (
     <div
       id={theme}
@@ -19,10 +24,10 @@ const Profile = () => {
       className={styles.container}
     >
       <div className={styles.profileImage}>
-        <img src={localStorage.getItem("photoUrl")} />{" "}
+        <img src={typeof window !== "undefined" ? localStorage.getItem("photoUrl"): "Hello" } alt='img' />{" "}
       </div>
-      <h2>{localStorage.getItem("name")} </h2>
-      <h2> {localStorage.getItem("email")} </h2>
+      <h2>{typeof window !== "undefined" ? localStorage.getItem("name"): "Hello" } </h2>
+      <h2> {typeof window !== "undefined" ? localStorage.getItem("email"): "Hellos" } </h2>
       <p>Account Admin: Falomo Mayowa </p>
       <Link href="./questions">
         <button>Start Quiz </button>
