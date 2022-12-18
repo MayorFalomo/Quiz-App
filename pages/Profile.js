@@ -19,10 +19,10 @@ const Profile = () => {
       className={styles.container}
     >
       <div className={styles.profileImage}>
-        <img src={localStorage?.getItem("photoUrl")} />{" "}
+        <img src={localStorage.getItem("photoUrl")} />{" "}
       </div>
-      <h2>{localStorage?.getItem("name")} </h2>
-      <h2> {localStorage?.getItem("email")} </h2>
+      <h2>{localStorage.getItem("name")} </h2>
+      <h2> {localStorage.getItem("email")} </h2>
       <p>Account Admin: Falomo Mayowa </p>
       <Link href="./questions">
         <button>Start Quiz </button>
