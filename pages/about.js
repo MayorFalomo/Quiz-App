@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react";
 import styles from "../styles/About.module.css";
-import { AppContext } from "./helpers/helpers";
+import { AppContext } from "../helpers/helpers";
 import AOS from "aos";
 import "aos/dist/aos.css";
 

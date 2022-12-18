@@ -2,7 +2,6 @@ import Axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import styles from "../../styles/Questions.module.css";
 import Login from "../Login";
-import arrayShuffle from "array-shuffle";
 import { AppContext } from "../../helpers/helpers";
 import Link from "next/link";
 import AOS from "aos";

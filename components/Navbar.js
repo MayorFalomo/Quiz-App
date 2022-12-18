@@ -9,10 +9,6 @@ import { ThemeProvider } from "next-themes";
 
 const Navbar = () => {
   const {
-    theme,
-    setTheme,
-    myTheme,
-    setMyTheme,
     menu,
     setMenu,
     changed,
@@ -50,7 +46,6 @@ const Navbar = () => {
               {<MdLightMode />} Light Mode
               <div className={styles.toggleContain}>
                 <div
-                  // id={changed ? "active" : "ball"}
                   onClick={handleChange}
                   className={changed ? styles.ballActive : styles.ball}
                 ></div>
@@ -62,15 +57,12 @@ const Navbar = () => {
               {<MdNightlight />} Dark Mode
               <div className={styles.toggleContain}>
                 <div
-                  // id="ball"
                   onClick={handleChange}
                   className={changed ? styles.ballActive : styles.ball}
                 ></div>
               </div>
             </li>
           )}
-          {/* <button onClick={() => setTheme("light")}>Light Mode</button>
-          <button onClick={() => setTheme("dark")}>Dark Mode</button> */}
         </ul>
       </div>
     </nav>
