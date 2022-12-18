@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import Link from "next/link";
-import { AppContext } from "../pages/helpers/helpers";
+import { AppContext } from "../helpers/helpers";
 import styles from "../styles/Navbar.module.css";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { MdNightlight } from "react-icons/md";

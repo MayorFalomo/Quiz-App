@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import Navbar from "../components/Navbar";
 import styles from "../styles/Layout.module.css";
-import { AppContext } from "../pages/helpers/helpers";
+import { AppContext } from "../helpers/helpers";
 
 const Layout = ({ children }) => {
   const { menu } = useContext(AppContext);

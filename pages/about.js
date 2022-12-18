@@ -3,7 +3,9 @@ import styles from "../styles/About.module.css";
 import { AppContext } from "./helpers/helpers";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { createContext } from "react";
 
+export const AppContext = createContext(null);
 const about = () => {
   const { theme } = useContext(AppContext);
 

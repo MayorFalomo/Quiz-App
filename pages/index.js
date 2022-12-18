@@ -3,9 +3,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { useContext, useEffect } from "react";
 import styles from "../styles/Home.module.css";
-import { AppContext } from "./helpers/helpers";
+import { AppContext } from "../helpers/helpers";
 import AOS from "aos";
 import "aos/dist/aos.css";
+
+
 export default function Home() {
   const { theme } = useContext(AppContext);
 
