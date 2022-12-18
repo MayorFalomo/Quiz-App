@@ -6,14 +6,16 @@ import { useRouter } from "next/router";
 
 const Login = () => {
   const { isAuth, setIsAuth } = useContext(AppContext);
+    const router = useRouter();
 
   const signInWithGoogle = () => {
     signInWithPopup(auth, provider)
       .then((res) => {
         localStorage.setItem(isAuth, true);
         setIsAuth(true);
-        const router = useRouter();
-        router.push("./");
+        if (isAuth == true) {
+        router.push("/");
+        }
         const profilePic = res.user.photoURL;
         const name = res.user.displayName;
         const email = res.user.email;
