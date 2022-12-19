@@ -15,6 +15,7 @@ export default function quiz({ questions }) {
   const [initialRenderComplete, setInitialRenderComplete] = useState(false);
   const [chosenOption, setChosenOption] = useState();
   const [showAnswer, setShowAnswer] = useState(false);
+  const [disableBtn, setDisableBtn] = useState(false)
 
   const { theme, score, setScore } = useContext(AppContext);
 
@@ -105,7 +106,7 @@ export default function quiz({ questions }) {
     setChosenOption(newArray[3]);
   };
 
-  // console.log(chosenOption);
+  console.log(score);
 
   useEffect(() => {});
   if (!initialRenderComplete) {
@@ -138,7 +139,7 @@ export default function quiz({ questions }) {
                 className={styles.flex}
               >
                 <h3>A. </h3>
-                <button onClick={arrayZero}>
+                <button disabled={(disableBtn ==true ? true : false )} onClick={arrayZero}>
                   <li>{newArray[0]} </li>
                 </button>
               </div>
