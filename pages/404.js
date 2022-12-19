@@ -1,6 +1,7 @@
-import React from "react";
 import Link from "next/link";
 import styles from "../styles/errorPage.module.css";
+
+
 const error = () => {
   return (
     <div className={styles.container}>

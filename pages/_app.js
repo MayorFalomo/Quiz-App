@@ -10,7 +10,6 @@ function MyApp({ Component, pageProps }) {
   const [menu, setMenu] = useState(false);
   const [score, setScore] = useState(0);
   const [theme, setTheme] = useState();
-  const [names, setNames] = useState("")
 
   useEffect(() => {
     localStorage.setItem("theme", JSON.stringify(theme));
@@ -48,8 +47,6 @@ function MyApp({ Component, pageProps }) {
           handleChange,
           score,
           setScore,
-          names,
-          setNames,
         }}
       >
         <Layout>

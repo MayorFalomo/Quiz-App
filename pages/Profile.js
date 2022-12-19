@@ -12,10 +12,6 @@ const Profile = () => {
     AOS.refresh();
   }, []);
 
-  if (typeof window !== 'undefined') {
-  // Perform localStorage action
-    const item = localStorage.getItem('name')
-}
   return (
     <div
       id={theme}

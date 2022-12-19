@@ -35,11 +35,5 @@
 @media (max-width: 800px) {
   .container{
     height: 100vh;
-    /* border: 2px red solid; */
-    /* width: 100%; */
   }
 }
-/* #dark .container{
-    background-color: black;
-    color: white;
-} */

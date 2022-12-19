@@ -12,11 +12,9 @@ const Navbar = () => {
     menu,
     setMenu,
     changed,
-    setChanged,
     handleChange,
   } = useContext(AppContext);
 
-  // const { theme, setTheme } = ThemeProvider();
   return (
     <nav className={styles.container}>
       <div className={styles.navbar}>

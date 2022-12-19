@@ -15,10 +15,10 @@ export default function quiz({ questions }) {
   const [initialRenderComplete, setInitialRenderComplete] = useState(false);
   const [chosenOption, setChosenOption] = useState();
   const [showAnswer, setShowAnswer] = useState(false);
-  const { score, setScore } = useContext(AppContext);
 
-  const { theme } = useContext(AppContext);
+  const { theme, score, setScore } = useContext(AppContext);
 
+  console.log(chosenOption);
   useEffect(() => {
     AOS.init();
     AOS.refresh();
@@ -66,9 +66,11 @@ export default function quiz({ questions }) {
     const getAns = newArray.find(
       (element) => element === quizData[number].correctAnswer
     );
+    console.log("I am here" ,getAns);
     // If the getAns == Whatever You chose increase the score
     if (getAns == chosenOption) {
       setScore(score + 1);
+      console.log(score);
     }
   };
 

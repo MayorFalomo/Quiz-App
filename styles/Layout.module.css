@@ -1,5 +1,4 @@
 .menu{
-    /* border: 4px red solid; */
     display: grid;
     grid-template-columns: 100px auto;
     height: 100vh;
@@ -25,12 +24,10 @@
         display: flex;
         flex-direction: column;
         transition: 0.4s ease;
-        /* gap: 20px; */
     }
     .menuActive{
         display: flex;
         flex-direction: column;
-        /* grid-template-columns: 200px auto; */
         transition: 0.5s ease;
     }
 }
