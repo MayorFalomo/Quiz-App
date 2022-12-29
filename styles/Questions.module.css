@@ -163,4 +163,7 @@
     font-size: 18px;
 }
 
+.container{
+    min-height: 100vh;
+}
 }
