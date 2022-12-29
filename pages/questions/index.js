@@ -155,7 +155,7 @@ export default function quiz({ questions }) {
                 data-aos-duration="2000"
                 className={styles.flex}
               >
-                <h3>C. </h3>
+                <h3>B. </h3>
                 <button id={current === 2  ? styles.stay : "" } onClick={arrayOne}>
                   {" "}
                   <li> {newArray[1]} </li>
@@ -169,7 +169,7 @@ export default function quiz({ questions }) {
                 data-aos-duration="1500"
                 className={styles.flexOption}
               >
-                <h2>B. </h2>
+                <h2>C. </h2>
                 <button id={current === 3  ? styles.stay : "" } onClick={arrayTwo}>
                   <li>{newArray[2]}</li>
                 </button>
