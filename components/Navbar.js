@@ -5,7 +5,7 @@ import styles from "../styles/Navbar.module.css";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { MdNightlight } from "react-icons/md";
 import { MdLightMode } from "react-icons/md";
-import { ThemeProvider } from "next-themes";
+
 
 const Navbar = () => {
   const {

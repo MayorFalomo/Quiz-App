@@ -119,6 +119,7 @@ export default function quiz({ questions }) {
     return null;
   } else {
     newArray.sort(() => (Math.random() > 0.5 ? 1 : -1)); // Shuffling the New array we pushed the
+
     return (
       <div id={theme} className={styles.container}>
         <div
@@ -134,7 +135,7 @@ export default function quiz({ questions }) {
           </div>
         </div>
         <div className={styles.main}>
-          <h2>
+          <h2 className={styles.question} >
             {numbering}. {questions[number].question}{" "}
           </h2>
           <div className={styles.list}>

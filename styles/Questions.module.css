@@ -138,8 +138,13 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 30px;
+    gap: 10px;
   }
+  .list .list1 .flex {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
   .profilePic{
     display: none;
   }
@@ -149,4 +154,13 @@
   .container{
     padding-top: 50px;
   }
+  .list2 button{
+    font-size: 16px;
+}.list1 button{
+    font-size: 16px;
+}
+.main .question{
+    font-size: 18px;
+}
+
 }
