@@ -107,10 +107,16 @@
     cursor: pointer;
 }
 
+#stay{
+   background-color: white;
+   color: black;
+   border: 1px black solid;
+}
 .list .list1 .flex {
     display: flex;
     align-items: center;
     gap: 30px;
+    /* background: #fff; */
 }
 .list .list2 .flexOption {
     display: flex;

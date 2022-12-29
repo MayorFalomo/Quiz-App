@@ -15,6 +15,7 @@ export default function quiz({ questions }) {
   const [initialRenderComplete, setInitialRenderComplete] = useState(false);
   const [chosenOption, setChosenOption] = useState();
   const [showAnswer, setShowAnswer] = useState(false);
+  const [current, setCurrent] = useState(0)
 
   const { theme, score, setScore } = useContext(AppContext);
 
@@ -91,18 +92,22 @@ export default function quiz({ questions }) {
   const arrayZero = (e) => {
     e.preventDefault();
     setChosenOption(newArray[0]);
+    setCurrent(1)
   };
   const arrayOne = (e) => {
     e.preventDefault();
     setChosenOption(newArray[1]);
+    setCurrent(2)
   };
   const arrayTwo = (e) => {
     e.preventDefault();
     setChosenOption(newArray[2]);
+    setCurrent(3)
   };
   const arrayThree = (e) => {
     e.preventDefault();
     setChosenOption(newArray[3]);
+    setCurrent(4)
   };
 
   console.log(score);
@@ -138,17 +143,18 @@ export default function quiz({ questions }) {
                 className={styles.flex}
               >
                 <h3>A. </h3>
-                <button onClick={arrayZero}>
+                <button id={current === 1  ? styles.stay : "" } onClick={arrayZero}>
                   <li>{newArray[0]} </li>
                 </button>
               </div>
               <div
                 data-aos="flip-left"
                 data-aos-duration="2000"
+                // id={showColor ? styles.id : "" }
                 className={styles.flex}
               >
                 <h3>C. </h3>
-                <button onClick={arrayOne}>
+                <button id={current === 2  ? styles.stay : "" } onClick={arrayOne}>
                   {" "}
                   <li> {newArray[1]} </li>
                 </button>
@@ -162,7 +168,7 @@ export default function quiz({ questions }) {
                 className={styles.flexOption}
               >
                 <h2>B. </h2>
-                <button onClick={arrayTwo}>
+                <button id={current === 3  ? styles.stay : "" } onClick={arrayTwo}>
                   <li>{newArray[2]}</li>
                 </button>
               </div>
@@ -172,7 +178,7 @@ export default function quiz({ questions }) {
                 className={styles.flexOption}
               >
                 <h2>D. </h2>
-                <button onClick={arrayThree}>
+                <button id={current === 4  ? styles.stay : "" } onClick={arrayThree}>
                   <li>{newArray[3]} </li>
                 </button>
               </div>
