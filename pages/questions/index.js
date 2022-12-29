@@ -61,6 +61,7 @@ export default function quiz({ questions }) {
     e.preventDefault();
     setNumber(number + 1);
     setNumbering(numbering + 1);
+    setCurrent(0)
 
     // checking if correct Answer is in the array then assigning it to getAns
     const getAns = newArray.find(
@@ -84,6 +85,7 @@ export default function quiz({ questions }) {
   const decrease = () => {
     setNumber(number - 1);
     setNumbering(numbering - 1);
+    setCurrent(0)
   };
   // UseEffect to check against Hydration - Important!
   useEffect(() => {
@@ -150,7 +152,6 @@ export default function quiz({ questions }) {
               <div
                 data-aos="flip-left"
                 data-aos-duration="2000"
-                // id={showColor ? styles.id : "" }
                 className={styles.flex}
               >
                 <h3>C. </h3>
