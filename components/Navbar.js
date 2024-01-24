@@ -1,30 +1,74 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Link from "next/link";
 import { AppContext } from "../helpers/helpers";
 import styles from "../styles/Navbar.module.css";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { MdNightlight } from "react-icons/md";
 import { MdLightMode } from "react-icons/md";
-
+import { useDispatch, useSelector } from "react-redux";
+import { setTheme } from "../pages/GlobalRedux/features/themeSlice";
+import { setMenu } from "../pages/GlobalRedux/features/menuSlice";
 
 const Navbar = () => {
-  const {
-    menu,
-    setMenu,
-    changed,
-    handleChange,
-  } = useContext(AppContext);
+  const theme = useSelector((state) => state.currentTheme.value);
+
+  const menuControl = useSelector((state) => state.menuControl.value);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const getFromStorage = localStorage.getItem("theme");
+    dispatch(
+      setTheme({
+        theme: getFromStorage,
+      })
+    );
+  }, []);
+
+  //function to handle switch to light mode
+  const handleTheme = () => {
+    dispatch(
+      setTheme({
+        theme: "light",
+        change: false,
+      })
+    );
+  };
+
+  //Function to handle switch to dark mode
+  const handleSwitch = () => {
+    dispatch(
+      setTheme({
+        theme: "dark",
+        change: true,
+      })
+    );
+    // localStorage.setItem("theme", theme.theme);
+  };
+
+  const toggleMenu = async () => {
+    dispatch(
+      setMenu({
+        menu: !menuControl.menu,
+      })
+    );
+  };
+
+  // console.log(menuControl.menu, "Menu control");
 
   return (
-    <nav className={styles.container}>
+    <nav className={menuControl.menu ? styles.activeCon : styles.container}>
       <div className={styles.navbar}>
         <div className={styles.header}>
-          <h1 onClick={() => setMenu(!menu)} style={{ cursor: "pointer" }}>
+          <h1 onClick={toggleMenu} style={{ cursor: "pointer" }}>
             {<RxHamburgerMenu size={50} color="white" />}
           </h1>
-          <h1 className={menu ? styles.show : styles.hide}> Quiz App </h1>
+          <h1 className={menuControl.menu ? styles.show : styles.hide}>
+            {" "}
+            Quiz App{" "}
+          </h1>
         </div>
-        <ul className={menu ? styles.ulActive : styles.ulOff}>
+        <ul className={menuControl.menu ? styles.ulActive : styles.ulOff}>
           <Link className={styles.links} href="./">
             Home{" "}
           </Link>
@@ -38,14 +82,15 @@ const Navbar = () => {
           <Link className={styles.links} href="./about">
             About{" "}
           </Link>
-          {changed ? (
+          {theme.change ? (
             <li className={styles.themeMode}>
               {" "}
               {<MdLightMode />} Light Mode
               <div className={styles.toggleContain}>
                 <div
-                  onClick={handleChange}
-                  className={changed ? styles.ballActive : styles.ball}
+                  onClick={handleTheme}
+                  // onClick={handleChange}
+                  className={theme.change ? styles.ballActive : styles.ball}
                 ></div>
               </div>
             </li>
@@ -55,8 +100,9 @@ const Navbar = () => {
               {<MdNightlight />} Dark Mode
               <div className={styles.toggleContain}>
                 <div
-                  onClick={handleChange}
-                  className={changed ? styles.ballActive : styles.ball}
+                  onClick={handleSwitch}
+                  // onClick={handleChange}
+                  className={theme.change ? styles.ballActive : styles.ball}
                 ></div>
               </div>
             </li>

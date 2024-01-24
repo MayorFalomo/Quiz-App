@@ -1,0 +1,13 @@
+.chartCon{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.chart{
+    width: 600px;
+}

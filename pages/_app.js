@@ -3,31 +3,35 @@ import { ThemeProvider } from "next-themes";
 import "../styles/globals.css";
 import Layout from "../components/Layout";
 import { AppContext } from "../helpers/helpers";
+import { Providers } from "./GlobalRedux/Provider";
+import { useRouter } from "next/router";
 
 function MyApp({ Component, pageProps }) {
   const [isAuth, setIsAuth] = useState(false);
   const [menu, setMenu] = useState(false);
   const [score, setScore] = useState(0);
-  const [theme, setTheme] = useState();
+  const [theme, setTheme] = useState("light");
 
-  useEffect(() => {
-    localStorage.setItem("theme", JSON.stringify(theme));
-  }, [theme]);
+  const router = useRouter();
 
-  useEffect(() => {
-    if (localStorage) {
-      localStorage.getItem("theme");
-    } else {
-      console.log("errr");
-    }
-  }, []);
+  // useEffect(() => {
+  //   localStorage.setItem("theme", JSON.stringify(theme));
+  // }, [theme]);
 
+  // useEffect(() => {
+  //   if (localStorage) {
+  //     localStorage.getItem("theme");
+  //   } else {
+  //     console.log("errr");
+  //   }
+  // }, []);
 
-  const [changed, setChanged] = useState(false);
+  // const [changed, setChanged] = useState(false);
 
   const handleChange = () => {
     setChanged(!changed);
-    setTheme((curr) => (curr === "light" ? "dark" : "light"));
+
+    setTheme((curr) => (curr == "light" ? "dark" : "light"));
     console.log(theme);
   };
 
@@ -35,22 +39,24 @@ function MyApp({ Component, pageProps }) {
     <ThemeProvider>
       <AppContext.Provider
         value={{
-          isAuth,
-          setIsAuth,
-          menu,
-          setMenu,
-          theme,
-          setTheme,
-          changed,
-          setChanged,
-          handleChange,
+          // isAuth,
+          // setIsAuth,
+          // menu,
+          // setMenu,
+          // theme,
+          // setTheme,
+          // changed,
+          // setChanged,
+          // handleChange,
           score,
           setScore,
         }}
       >
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <Providers>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </Providers>
       </AppContext.Provider>{" "}
     </ThemeProvider>
   );

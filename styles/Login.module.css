@@ -8,7 +8,7 @@
 }
 .container button {
   border: 2px #dadce0 solid;
-  padding: 15px 25px;
+  padding: 10px 25px;
   font-size: 18px;
   border-radius: 20px;
   width: 90%;
@@ -17,6 +17,7 @@
   justify-content: center;
   margin: auto;
   gap: 5px;
+  cursor: pointer;
 }
 .container div {
   display: flex;
@@ -30,10 +31,16 @@
 .container h2 {
   text-align: center;
 }
-.container .container p {
+.container p {
   font-size: 18px;
   border-top: 1px #dadce0 solid;
   padding: 10px 5px;
   margin: auto;
-  padding: 15px;
+   /* border: 2px red solid; */
+}
+
+@media (max-width: 450px) {
+  .container button{
+    width: 100%;
+  }
 }

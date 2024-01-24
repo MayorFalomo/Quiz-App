@@ -2,32 +2,35 @@
     display: grid;
     grid-template-columns: 100px auto;
     height: 100vh;
-    transition: 0.5s ease;
+    /* transition: 0.5s ease; */
+    transition: 0.4s  cubic-bezier(0.87, 0, 0.13, 1);
 }
 
 .menuActive{
     display: grid;
     grid-template-columns: 300px auto;
-    transition: 0.4s ease;
+    /* transition: 0.4s ease; */
+    transition: 0.4s  cubic-bezier(0.87, 0, 0.13, 1);
     height: 100vh;
 }
 
-@media (max-width: 620px) {
-    .menuActive{
-        display: grid;
-        grid-template-columns: 200px auto;
-        transition: 0.5s ease;
-    }
-}
 @media (max-width: 800px) {
     .menu{
         display: flex;
         flex-direction: column;
-        transition: 0.4s ease;
+        transition: 0.5s ease;
     }
     .menuActive{
         display: flex;
         flex-direction: column;
+        transition: 0.5s ease;
+        
+        
+    }
+}
+
+@media (max-width: 620px) {
+    .menuActive{
         transition: 0.5s ease;
     }
 }
