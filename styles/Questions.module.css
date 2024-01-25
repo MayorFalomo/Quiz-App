@@ -1,8 +1,18 @@
 .container .profile{
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: flex-end;
+    padding: 20px;
+    /* border: 2px red solid; */
+}
+
+.timer{
+    font-size: calc(25px + 0.25vw);
+    color: black;
+}
+.darkTimer{
+  font-size: calc(25px + 0.25vw);
+    color: white;
 }
 
 .mainProfile{
@@ -10,7 +20,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 30px;
+    /* padding: 30px; */
     /* border: 2px blue solid; */
 }
 
@@ -25,64 +35,79 @@
     background-position: center;
 }
 
-.container .profileImg{
-    max-width: 100% !important;
-    max-height: 100% !important;
-    /* border: 2px green solid; */
- vertical-align: middle;
- object-fit: cover;
-}
-
 .main{
     display: flex;
     flex-direction: column;
     text-align: center;
     align-items: center;
     justify-content: center;
-    height: 60vh;
     /* border: 2px red solid; */
+    height: 70%;
+    /* margin-bottom: 40px; */
+    /* height: 60vh; */
+}
+
+.questDark{
+color: #fff;
+}
+.question{
+    color: black;
 }
 .list{
     display: flex;
     align-items: center;
+    flex-direction: column;
     justify-content: space-around;
-    width: 100%;
-    padding: 40px;
+    gap: 30px;
+    width:fit-content;
+    min-width: 70%;
+    max-width: 100%;
+    /* width: 70%; */
+    padding: 30px;
+    border: 2px green solid;
 }
 .list1{
     display: flex;
-    flex-direction: column;
+   justify-content: space-between;
     align-items: flex-start;
-    gap: 30px;
-    font-size: 24px;
+    gap: 20px;
+        font-size: calc(17px + 0.25vw);
+        width: 95%;
+/* border: 2px red solid; */
+    /* font-size: 20px; */
 }
 .list1 button{
-    font-size: 24px;
+    font-size: calc(17px + 0.25vw);
     border: none;
-    padding: 20px;
+    padding: 10px 10px;
+    width: fit-content;
     outline: none;
     transition: 0.4s ease;
         background-color: rgb(51, 51, 175);
         color: #fff;
-        border-radius: 50px;
+        border-radius: 20px;
 }
 .list2{
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: flex-start;
-    gap: 30px;
+    gap: 20px;
     border: none;
+    font-size: calc(17px + 0.25vw);
+    width: 95%;
 }
 
 .list2 button{
-    font-size: 24px;
-    padding: 20px;
+    /* font-size: 24px; */
+        font-size: calc(17px + 0.25vw);
+    padding: 10px 10px;
+    width: fit-content;
     outline: none;
     border: none;
     transition: 0.4 ease;
         background-color: rgb(51, 51, 175);
         color: white;
-        border-radius: 50px;
+        border-radius: 20px;
 }
 
 .list1 button:hover{
@@ -95,9 +120,9 @@
 .list2 button:hover{
     background-color: transparent;
      border: 1px blue solid;
-        transition: 0.4s ease;
-        color: black;
-        cursor: pointer;
+    transition: 0.4s ease;
+    color: black;
+    cursor: pointer;
 }
 
 .btnStyle{
@@ -122,63 +147,126 @@
     cursor: pointer;
 }
 
-#stay{
-   background-color: white;
-   color: black;
+#persistColor{
+   background-color: blue !important;
+   color: black !important;
    border: 1px black solid;
 }
+
 .list .list1 .flex {
     display: flex;
     align-items: center;
     gap: 30px;
+    /* border: 2px red solid; */
     /* background: #fff; */
 }
 .list .list2 .flexOption {
     display: flex;
     align-items: center;
     gap: 30px;
+    /* border: 2px yellow solid; */
 }
 
 .main p{
     margin-top: 20px;
+        font-size: calc(18px + 0.25vw);
+
+}
+
+@media (max-width: 970px) {
+    .list1{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .list2{
+        display: flex;
+        flex-direction: column;
+                width: 100%;
+    }
 }
 @media (max-width: 800px) {
   .container{
     height: 100vh;
     width: 100%;
   }
+   .container .profilePic{
+    width: 80px;
+    height: 80px;
+  }
 }
 @media (max-width: 500px) {
+    .profile{
+        margin-bottom: 20px;
+        padding: 7px;
+    }
   .list{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 10px;
+    gap: 20px;
+  }
+  .list1{
+    width: 100% !important;
+    /* margin: 2px auto; */
+    /* border: 2px green solid; */
+  }
+  .list2{
+    width: 100%;
+    /* margin: 2px auto; */
   }
   .list .list1 .flex {
     display: flex;
     align-items: center;
     gap: 10px;
 }
-  .profilePic{
-    display: none;
+  .list .list2 .flexOption {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+ .container .profilePic{
+    width: 60px;
+    height: 60px;
   }
   .mainProfile h2{
-    display: none;
+    font-size: calc(14px + 0.25vw);
   }
   .container{
-    padding-top: 50px;
+     min-height: 100vh;
+     /* border: 3px red solid; */
+     margin-bottom: 40px;
   }
   .list2 button{
-    font-size: 16px;
+    /* font-size: 16px; */
+        font-size: calc(16px + 0.25vw);
+
 }.list1 button{
-    font-size: 16px;
+    /* font-size: 16px; */
+        font-size: calc(16px + 0.25vw);
 }
-.main .question{
-    font-size: 18px;
+.btnStyle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+}
+.main h2{
+    font-size: calc(18px + 0.25vw);
+    width: 98%;
+    margin-top: 50px;
 }
 
-.container{
-    min-height: 100vh;
+.timer{
+    font-size: calc(18px + 0.25vw);
+    color: black;
 }
+.darkTimer{
+  font-size: calc(18px + 0.25vw);
+    color: white;
+}
+
+
 }

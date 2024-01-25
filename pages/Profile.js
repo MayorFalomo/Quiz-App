@@ -10,23 +10,6 @@ import { setTheme } from "./GlobalRedux/features/themeSlice";
 
 const Profile = () => {
   // const { theme } = useContext(AppContext);
-  useEffect(() => {
-    AOS.init();
-    AOS.refresh();
-  }, []);
-
-  const { getTheme, setGetTheme } = useState("");
-
-  // useEffect(() => {
-  //   if (localStorage) {
-  //     const getThemeFromStorage = localStorage.getItem("theme");
-  //     dispatch(setTheme({ theme: getThemeFromStorage }));
-  //     console.log(getThemeFromStorage, "gotten");
-  //     // console.log(getTheme);
-  //   } else {
-  //     console.log("errr");
-  //   }
-  // }, []);
 
   const router = useRouter();
 
@@ -42,35 +25,41 @@ const Profile = () => {
     }
   }, []);
 
-  // console.log(theme, "This is theme");
+  useEffect(() => {
+    if (localStorage) {
+      localStorage.setItem("theme", theme.theme);
+    } else {
+      console.log("errr");
+    }
+  }, [theme.theme]);
+
+  const photo =
+    typeof window !== "undefined" && localStorage.getItem("photoUrl");
   return (
-    <div id={theme} className={styles.container}>
+    <div id={theme.theme} className={styles.container}>
       <div className={styles.profileImage}>
-        <img
-          src={
-            typeof window !== "undefined"
-              ? localStorage.getItem("photoUrl")
-              : "user.profilePics"
-          }
-          alt="img"
-        />{" "}
+        <img src={photo || user.profilePics || ""} alt="img" />{" "}
       </div>
-      <h2>
+      <h2 style={{ color: theme.theme == "dark" ? "white" : "black" }}>
         {" "}
         {typeof window !== "undefined"
           ? localStorage.getItem("name")
           : user.name}
       </h2>
       {/* <h2>{user.telephone} </h2> */}
-      <h2>
+      <h2 style={{ color: theme.theme == "dark" ? "white" : "black" }}>
         {/* {user.email} */}
         {typeof window !== "undefined"
           ? localStorage.getItem("email")
           : user.email}{" "}
       </h2>
-      <p>Account Admin: Falomo Mayowa </p>
+      <p style={{ color: theme.theme == "dark" ? "white" : "black" }}>
+        Account Admin: Falomo Mayowa{" "}
+      </p>
       <Link href="./questions">
-        <button>Start Quiz </button>
+        <button style={{ color: theme.theme == "dark" ? "white" : "black" }}>
+          Start Quiz{" "}
+        </button>
       </Link>
     </div>
   );

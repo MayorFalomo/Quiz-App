@@ -3,18 +3,28 @@ import styles from "../styles/About.module.css";
 import { AppContext } from "../helpers/helpers";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { useSelector } from "react-redux";
 
 const about = () => {
-  const { theme } = useContext(AppContext);
+  // const { theme } = useContext(AppContext);
+  const theme = useSelector((state) => state.currentTheme.value);
 
   useEffect(() => {
     AOS.init();
     AOS.refresh();
   }, []);
 
+  useEffect(() => {
+    if (localStorage) {
+      localStorage.setItem("theme", theme.theme);
+    } else {
+      console.log("errr");
+    }
+  }, [theme.theme]);
+
   return (
     <div
-      id={theme}
+      id={theme.theme}
       data-aos="fade-up"
       data-aos-anchor-placement="top-center"
       className={styles.container}

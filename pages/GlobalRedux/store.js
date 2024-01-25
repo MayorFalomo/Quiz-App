@@ -3,7 +3,7 @@ import userSlice from "./features/userSlice";
 import userTheme from "./features/themeSlice";
 import menuSlice from "./features/menuSlice";
 import score from "./features/scoreSlice";
-
+import time from "./features/timeUpSlice";
 //N:b: The name userSlice doesn't really matter it could be anything(But for consistency really) really as long as we import the component we're defining the reducer in
 const rootReducer = combineReducers({
   //?All Reducers would be here
@@ -11,6 +11,7 @@ const rootReducer = combineReducers({
   currentTheme: userTheme,
   menuControl: menuSlice,
   score: score,
+  time: time,
 });
 
 export const store = configureStore({

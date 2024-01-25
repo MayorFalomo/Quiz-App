@@ -33,6 +33,7 @@ const Navbar = () => {
         change: false,
       })
     );
+    localStorage.setItem("theme", theme.theme);
   };
 
   //Function to handle switch to dark mode
@@ -43,7 +44,7 @@ const Navbar = () => {
         change: true,
       })
     );
-    // localStorage.setItem("theme", theme.theme);
+    localStorage.setItem("theme", theme.theme);
   };
 
   const toggleMenu = async () => {

@@ -53,7 +53,7 @@ const login = () => {
 
   const user = useSelector((state) => state.currentUser.value);
 
-  console.log(user, "I Am User");
+  // console.log(user, "I Am User");
 
   return (
     <div className={styles.container}>

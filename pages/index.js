@@ -23,6 +23,7 @@ export default function Home() {
     }
   }, [theme.theme]);
 
+  //UseEffect only runs if user.id does not have a value so this state would always have a value
   useEffect(() => {
     if (!user.id) {
       dispatch(
@@ -39,7 +40,7 @@ export default function Home() {
     dispatch(resetScore({ score: 0 }));
   }, []);
 
-  console.log(user, "current user");
+  // console.log(user, "current user");
 
   return (
     <div id={theme.theme} className={styles.container}>

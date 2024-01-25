@@ -4,11 +4,20 @@ import { doc, setDoc } from "firebase/firestore";
 import { db } from "../components/Firebase-config";
 import ChartJs from "../components/ChartJs";
 import Link from "next/link";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import styles from "../styles/leaderboard.module.css";
 
 const leaderboard = () => {
   const [users, setUsers] = useState([]);
+  const theme = useSelector((state) => state.currentTheme.value);
+
+  useEffect(() => {
+    if (localStorage) {
+      localStorage.setItem("theme", theme.theme);
+    } else {
+      console.log("errr");
+    }
+  }, [theme.theme]);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -53,7 +62,12 @@ const leaderboard = () => {
   // console.log(users, "user chart");
 
   return (
-    <div>
+    <div
+      style={{
+        color: theme.theme == "dark" ? "white" : "black",
+        backgroundColor: theme.theme == "dark" ? "white" : "black",
+      }}
+    >
       <ChartJs userChartData={userChartData} />
     </div>
   );
