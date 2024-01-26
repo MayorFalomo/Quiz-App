@@ -81,6 +81,9 @@ const Navbar = () => {
           <Link className={styles.links} href="./questions">
             Tests{" "}
           </Link>
+          {/* <Link className={styles.links} href="./leaderboard">
+            leaderboard{" "}
+          </Link> */}
           <Link className={styles.links} href="./about">
             About{" "}
           </Link>

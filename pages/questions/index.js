@@ -2,15 +2,14 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import styles from "../../styles/Questions.module.css";
 // import { AppContext } from "../../helpers/helpers";
-import AOS from "aos";
-import "aos/dist/aos.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import { loginUser } from "../../components/GlobalRedux/features/userSlice";
 import { scoreAnswer } from "../../components/GlobalRedux/features/scoreSlice";
 import { db } from "../../Firebase-config";
-import { setDoc, doc } from "firebase/firestore";
+import { setDoc, doc, runTransaction } from "firebase/firestore";
 import { timeUp } from "../../components/GlobalRedux/features/timeUpSlice";
+import { getFirestore, collection, getDocs } from "firebase/firestore";
 
 export default function quiz({ questions, delayResend = "120" }) {
   const [number, setNumber] = useState(0);
@@ -21,6 +20,7 @@ export default function quiz({ questions, delayResend = "120" }) {
   const [chosenOption, setChosenOption] = useState("");
   const [showAnswer, setShowAnswer] = useState(false);
   const [current, setCurrent] = useState(0);
+  const [users, setUsers] = useState([]);
 
   const user = useSelector((state) => state.currentUser.value);
   const theme = useSelector((state) => state.currentTheme.value);
@@ -29,11 +29,6 @@ export default function quiz({ questions, delayResend = "120" }) {
   const dispatch = useDispatch();
 
   const router = useRouter();
-
-  useEffect(() => {
-    AOS.init();
-    AOS.refresh();
-  }, []);
 
   //UseEffect to check if the id is present in storage and if it's not route the user to login
   useEffect(() => {
@@ -132,6 +127,8 @@ export default function quiz({ questions, delayResend = "120" }) {
       const getAns = newQuestArray.find(
         (element) => element === quizData[number].correctAnswer
       );
+      console.log(getAns, "getans");
+      console.log(chosenOption);
       if (getAns == chosenOption) {
         dispatch(
           scoreAnswer({
@@ -145,15 +142,28 @@ export default function quiz({ questions, delayResend = "120" }) {
             timeUpMessage: false,
           })
         );
+        //Using transactions in firebase i can run get, update etc. operations in a single call, first i initialize a run transaction method in firebase
+        await runTransaction(db, async (transaction) => {
+          const userDocRef = doc(db, "users", user.id); //This part searches for the user in the fireStore
+          const userDoc = await transaction.get(userDocRef); //If it's found get the userDocRef and assign it to userDoc which would now contain the user data like name, score, time etc then i run the check to see if the userDocRef score is > than the current score amd if it is update it.
+          const newScore = score.score + 1;
+          console.log(score.score, "score.score");
+          console.log(newScore, "newScore");
+          if (newScore > userDoc.data().score) {
+            transaction.update(userDocRef, {
+              score: newScore,
+              time: 120 - delay,
+            });
+          }
+        });
       }
 
-      await setDoc(doc(db, "users", user.id), {
-        ...user, // Spread operator to keep other properties of the user object unchanged.
-        score: score.score + 1,
-        time: 180 - delay,
-      });
-
-      console.log(user, "user");
+      //*Basic function to update a document in firebase
+      // await setDoc(doc(db, "users", user.id), {
+      //   ...user, // Spread operator to keep other properties of the user object unchanged.
+      //   score: score.score + 1,
+      //   time: 120 - delay,
+      // });
 
       router.push("/scores");
     } catch (error) {
@@ -169,7 +179,7 @@ export default function quiz({ questions, delayResend = "120" }) {
   };
 
   // console.log(quizData[0], "number");
-  // console.log(theme.theme, "theme");
+  console.log(delay, "delay");
 
   return (
     <div id={theme.theme} className={styles.container}>
@@ -335,7 +345,7 @@ export default function quiz({ questions, delayResend = "120" }) {
               Next{" "}
             </button>
           )}
-          {/* {showAnswer ? (
+          {showAnswer ? (
             <button
               onClick={() => setShowAnswer(false)}
               className={styles.next}
@@ -343,13 +353,10 @@ export default function quiz({ questions, delayResend = "120" }) {
               Hide Answer{" "}
             </button>
           ) : (
-            <button
-              onClick={() => setShowAnswer(true)}
-              className={styles.next}
-            >
+            <button onClick={() => setShowAnswer(true)} className={styles.next}>
               Show Answer{" "}
             </button>
-          )} */}
+          )}
         </div>
         <p> {showAnswer ? quizData[number].correctAnswer : ""}</p>
       </div>

@@ -8,10 +8,12 @@ import { resetScore } from "../components/GlobalRedux/features/scoreSlice";
 
 export default function Home() {
   // const { theme } = useContext(AppContext);
+
   const theme = useSelector((state) => state.currentTheme.value);
   const dispatch = useDispatch();
 
   const user = useSelector((state) => state.currentUser.value);
+
   //This useEffect sets the theme key to the current theme in the state and runs again when theme changes
   useEffect(() => {
     if (localStorage) {
@@ -41,8 +43,11 @@ export default function Home() {
   return (
     <div id={theme.theme} className={styles.container}>
       <Head>
-        <title>Quiz app</title>
-        <meta name="description" content="Quiz app" />
+        <title>A Trivial Quiz app</title>
+        <meta
+          name="A Trivial Quiz App where users can answer 10 questions and be the top on the leaderboard"
+          content="Quiz app"
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

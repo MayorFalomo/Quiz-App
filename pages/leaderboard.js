@@ -3,15 +3,12 @@ import { getFirestore, collection, getDocs } from "firebase/firestore";
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "../Firebase-config";
 import ChartJs from "../components/ChartJs";
-import Link from "next/link";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import styles from "../styles/leaderboard.module.css";
 
 const leaderboard = () => {
   const [users, setUsers] = useState([]);
   const theme = useSelector((state) => state.currentTheme.value);
-  const [scoreState, setScoreState] = useState();
-  const [timeState, setTimeState] = useState();
 
   useEffect(() => {
     if (localStorage) {
@@ -21,7 +18,6 @@ const leaderboard = () => {
     }
   }, [theme.theme]);
 
-  const dispatch = useDispatch();
   useEffect(() => {
     const getAllUsers = async () => {
       const db = getFirestore();
@@ -33,8 +29,6 @@ const leaderboard = () => {
         const users = querySnapshot.docs.map((doc, index) => {
           return { id: doc.id, ...doc.data(), index: index + 1 };
         });
-
-        // console.log("All users:", users);
         setUsers(users);
         return users;
       } catch (error) {
@@ -44,13 +38,10 @@ const leaderboard = () => {
     getAllUsers();
   }, []);
 
-  console.log(users);
-
-  // const username = users.map((data) => data.name);
-  // const  profilePic = users.map(())
   const label = users.map((data) => data.score);
   const time = users.map((data) => data.time);
 
+  //Chart must have labels and datasets property
   const data = {
     labels: label,
     datasets: [
@@ -70,21 +61,10 @@ const leaderboard = () => {
         tension: 0.1,
       },
     ],
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-    },
   };
 
   return (
-    <div
-      id={theme.theme}
-      // style={{
-      //   color: theme.theme == "dark" ? "white" : "black",
-      //   backgroundColor: theme.theme == "dark" ? "#001219" : "white",
-      // }}
-      className={styles.AllUsers}
-    >
+    <div id={theme.theme} className={styles.AllUsers}>
       <ChartJs data={data} />
 
       <div className={styles.leaderBoardData}>
@@ -117,7 +97,6 @@ const leaderboard = () => {
 };
 
 const AllUsers = ({ user }) => {
-  console.log(user, "All users");
   const theme = useSelector((state) => state.currentTheme.value);
 
   return (

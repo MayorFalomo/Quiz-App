@@ -36,6 +36,7 @@ const login = () => {
           localStorage.setItem("email", res.user.email);
           localStorage.setItem("name", res.user.displayName);
           localStorage.setItem("photoUrl", res.user.photoURL);
+          //Creates the user instance in fireStore
           await setDoc(doc(db, "users", res.user.uid), {
             uid: res.user.uid,
             username: res.user.displayName,
