@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import { ThemeProvider } from "next-themes";
 import "../styles/globals.css";
 import Layout from "../components/Layout";
-import { AppContext } from "../helpers/helpers";
+// import { AppContext } from "../helpers/helpers";
 import { Providers } from "./GlobalRedux/Provider";
 import { useRouter } from "next/router";
 
@@ -36,29 +35,11 @@ function MyApp({ Component, pageProps }) {
   };
 
   return (
-    <ThemeProvider>
-      <AppContext.Provider
-        value={{
-          // isAuth,
-          // setIsAuth,
-          // menu,
-          // setMenu,
-          // theme,
-          // setTheme,
-          // changed,
-          // setChanged,
-          // handleChange,
-          score,
-          setScore,
-        }}
-      >
-        <Providers>
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
-        </Providers>
-      </AppContext.Provider>{" "}
-    </ThemeProvider>
+    <Providers>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </Providers>
   );
 }
 

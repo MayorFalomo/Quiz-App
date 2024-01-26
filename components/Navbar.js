@@ -1,13 +1,14 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { AppContext } from "../helpers/helpers";
+// import { AppContext } from "../helpers/helpers";
 import styles from "../styles/Navbar.module.css";
-import { RxHamburgerMenu } from "react-icons/rx";
+import { RxGithubLogo, RxHamburgerMenu, RxTwitterLogo } from "react-icons/rx";
 import { MdNightlight } from "react-icons/md";
 import { MdLightMode } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { setTheme } from "../pages/GlobalRedux/features/themeSlice";
 import { setMenu } from "../pages/GlobalRedux/features/menuSlice";
+import { TbExternalLink } from "react-icons/tb";
 
 const Navbar = () => {
   const theme = useSelector((state) => state.currentTheme.value);
@@ -109,6 +110,17 @@ const Navbar = () => {
             </li>
           )}
         </ul>
+      </div>
+      <div className={styles.social}>
+        <a target="_blank" href="https://github.com/Mayorfalomo">
+          <span> {<RxGithubLogo color="white" />} </span>
+        </a>
+        <a target="_blank" href="https://mayowa-falomo.netlify.app">
+          <span> {<TbExternalLink />} </span>
+        </a>
+        <a target="_blank" href="https://twitter.com/mayowafalomo1">
+          <span> {<RxTwitterLogo />} </span>
+        </a>
       </div>
     </nav>
   );

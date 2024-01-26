@@ -1,7 +1,7 @@
 import axios from "axios";
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../../styles/Questions.module.css";
-import { AppContext } from "../../helpers/helpers";
+// import { AppContext } from "../../helpers/helpers";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useDispatch, useSelector } from "react-redux";
@@ -12,7 +12,7 @@ import { db } from "../../components/Firebase-config";
 import { setDoc, doc } from "firebase/firestore";
 import { timeUp } from "../GlobalRedux/features/timeUpSlice";
 
-export default function quiz({ questions, delayResend = "120" }) {
+export default function quiz({ questions, delayResend = "150" }) {
   const [number, setNumber] = useState(0);
   const [quizData, setQuizData] = useState(questions);
   const [newQuestArray, setNewQuestArray] = useState([]);
@@ -175,7 +175,8 @@ export default function quiz({ questions, delayResend = "120" }) {
     <div id={theme.theme} className={styles.container}>
       <div className={styles.profile}>
         <h1 className={theme.theme == "dark" ? styles.darkTimer : styles.timer}>
-          {delay == 10 ? "⏳" : ""} {`${minutes} : ${seconds}`}
+          {delay <= 10 ? <span className={styles.hourglass}> ⏳</span> : ""}{" "}
+          {`${minutes} : ${seconds}`}
         </h1>
         <div className={styles.mainProfile}>
           <div
@@ -334,7 +335,7 @@ export default function quiz({ questions, delayResend = "120" }) {
               Next{" "}
             </button>
           )}
-          {showAnswer ? (
+          {/* {showAnswer ? (
             <button
               onClick={() => setShowAnswer(false)}
               className={styles.next}
@@ -343,14 +344,12 @@ export default function quiz({ questions, delayResend = "120" }) {
             </button>
           ) : (
             <button
-              // data-aos="fade-down"
-              // data-aos-duration="3000"
               onClick={() => setShowAnswer(true)}
               className={styles.next}
             >
               Show Answer{" "}
             </button>
-          )}
+          )} */}
         </div>
         <p> {showAnswer ? quizData[number].correctAnswer : ""}</p>
       </div>

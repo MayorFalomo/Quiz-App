@@ -1,32 +1,133 @@
-.chartCon{
+
+.AllUsers{
+    /* border: 2px green solid; */
+    height: 100vh;
+    overflow-y: auto !important;
+}
+
+ /* #dark{
+    background-color:  #001219;
+} */
+
+
+.leaderBoardData{
+    /* border: 2px red solid; */
+    margin: 0 auto;
+    width: 60% ;
+        margin-bottom: 100px;
+
+}
+
+.flexHeader{
     display: flex;
-    justify-content: center;
-    flex-direction: column;
-    gap: 20px;
     align-items: center;
-    height: 100%;
+    gap: 20px;
+    padding: 20px;
+}
+
+.flexHeader p{
+    font-size: calc(26px + 0.25vw);
+    font-weight: 600;
+    width: 100%;
+    margin: 0 auto;
+        /* border: 2px yellow solid; */
+        display: flex;
+        justify-content: center;
+        font-family: "Erode";
+}
+
+.usersMap{
+    /* border: 2px green solid; */
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.userSubMap{
+    border: 1px #000 solid;
+    border-radius: 10px;
+}
+.darkUsersMap{
+    border: 1px rgba(255, 255, 255, 0.314) solid;
+    border-radius: 10px;
+}
+
+
+.userDataContainer{
+    /* display: flex; */
+    /* border: 2px blue solid; */
+}
+
+.userData{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    /* border: 2px green solid; */
     width: 100%;
 }
 
-.chart{
-    width: 600px;
+.userData p{
+        /* border: 3px red solid; */
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        font-size: calc(18px + 0.25vw);
+        font-weight: 500;
 }
-.restartBtn{
-    font-size: 18px;
-    padding: 10px 25px;
-    outline: none;
-    border: 1px black solid;
-    transition: 0.4 ease;
-        /* background-color: rgb(51, 51, 175); */
-        color: black;
-        font-weight: 600;
-        border-radius: 30px;
-        cursor: pointer;
+
+.userInfoArea{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    /* border: 2px red solid; */
 }
-.restartBtn:hover{
-    background-color:rgb(51, 51, 175) ;
-        border: 1px blue solid;
-        transition: 0.4s ease;
-        color: white;
-        cursor: pointer;
+
+.userDataBgImg{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@media (max-width: 1300px) {
+    .leaderBoardData{
+        width: 80%;
+    }
+}
+@media (max-width: 800px) {
+    .leaderBoardData{
+        width: 95%;
+    }
+    .flexHeader p{
+    font-size: calc(18px + 0.25vw);
+    font-weight: 400;
+    width: 100%;
+    margin: 0 auto;
+        /* border: 2px yellow solid; */
+        display: flex;
+        justify-content: center;
+
+}
+}
+
+@media (max-width: 600px) {
+   .userDataBgImg{
+    max-width: 30px;
+    max-height: 30px;
+    border-radius: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+}
+
+@media (max-width: 450px) {
+   .userData p{
+      
+        font-size: calc(16px + 0.25vw);
+        font-weight: 300;
+}
 }

@@ -1,3 +1,7 @@
+.container{
+    width: 100%;
+    height: 100vh;
+}
 .container .profile{
     display: flex;
     justify-content: space-between;
@@ -13,6 +17,28 @@
 .darkTimer{
   font-size: calc(25px + 0.25vw);
     color: white;
+}
+
+.timer .hourglass{
+    animation: rotation 1s linear infinite;
+}
+
+.darkTimer .hourglass{
+  
+    animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+    0%{
+        opacity: 0;
+
+    }
+    50%{
+       opacity: 1;
+    }
+    100%{
+       opacity: 0;
+    }
 }
 
 .mainProfile{
@@ -64,18 +90,17 @@ color: #fff;
     max-width: 100%;
     /* width: 70%; */
     padding: 30px;
-    border: 2px green solid;
+    /* border: 2px green solid; */
 }
 .list1{
     display: flex;
-   justify-content: space-between;
+    justify-content: space-between;
     align-items: flex-start;
     gap: 20px;
-        font-size: calc(17px + 0.25vw);
-        width: 95%;
-/* border: 2px red solid; */
-    /* font-size: 20px; */
+    font-size: calc(17px + 0.25vw);
+    width: 95%;
 }
+
 .list1 button{
     font-size: calc(17px + 0.25vw);
     border: none;
@@ -83,9 +108,9 @@ color: #fff;
     width: fit-content;
     outline: none;
     transition: 0.4s ease;
-        background-color: rgb(51, 51, 175);
-        color: #fff;
-        border-radius: 20px;
+    background-color: rgb(51, 51, 175);
+    color: #fff;
+    border-radius: 20px;
 }
 .list2{
     display: flex;
@@ -141,9 +166,27 @@ color: #fff;
     cursor: pointer;
 }
 .next{
-    padding: 10px 30px;
+    padding: 10px 25px;
     border: none;
     outline: none;
+    cursor: pointer;
+    border-radius: 10px;
+    border: 1px black solid;
+}
+
+.next:hover{
+    background-color: transparent;
+    border: 1px blue solid;
+    transition: 0.4s ease;
+    /* color: black; */
+    cursor: pointer;
+}
+
+.prev:hover{
+    /* background-color: transparent; */
+    border: 1px blue solid;
+    transition: 0.4s ease;
+    /* color: black; */
     cursor: pointer;
 }
 

@@ -4,6 +4,9 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+  /* border: 2px red solid; */
+   width: 100% !important;
+    height: 100vh !important;
 }
 
 .HeroImg{

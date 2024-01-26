@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React, { useContext, useEffect } from "react";
+import React, { useEffect } from "react";
 import { AppContext } from "../helpers/helpers";
 import styles from "../styles/Scores.module.css";
 import AOS from "aos";
@@ -22,7 +22,7 @@ const scores = () => {
   // console.log(score.score, "score");
   // const { score, theme } = useContext(AppContext);
 
-  console.log(time.timeUpMessage);
+  // console.log(time.timeUpMessage);
   return (
     <div id={theme.theme} data-aos="zoom-in-up" className={styles.container}>
       <h1
@@ -69,7 +69,7 @@ const scores = () => {
         ""
       )}
       <div className={styles.flexBtn}>
-        <Link href="./">
+        <Link href="./Profile">
           <button className={styles.restartBtn}>Restart Quiz </button>{" "}
         </Link>
         <Link href="./leaderboard">

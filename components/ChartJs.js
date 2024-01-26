@@ -1,35 +1,55 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
+import styles from "../styles/Chartjs.module.css";
+import Link from "next/link";
+import { useSelector } from "react-redux";
+import { Line } from "react-chartjs-2";
 import {
-  Chart as ChartJS,
+  CategoryScale,
+  Chart,
+  LinearScale,
+  Tooltip,
+  PointElement,
+  LineElement,
+  Title,
+  Legend,
+} from "chart.js";
+
+Chart.register(
   CategoryScale,
   LinearScale,
   Tooltip,
   PointElement,
   LineElement,
-} from "chart.js";
-import { Line } from "react-chartjs-2";
-// Register ChartJS components using ChartJS.register
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Tooltip
+  Title,
+  Legend
 );
-import styles from "../styles/leaderboard.module.css";
-import Link from "next/link";
-import { useDispatch } from "react-redux";
+const ChartJs = ({ data }) => {
+  const theme = useSelector((state) => state.currentTheme.value);
+  Chart.defaults.backgroundColor = "red";
 
-const ChartJs = ({ userChartData }) => {
-  // console.log(userChartData);
-  const dispatch = useDispatch();
+  const chartOptions = {
+    maintainAspectRatio: true,
+    responsive: true,
+  };
 
   return (
-    <div className={styles.chartCon}>
-      <div className={styles.chart}>
-        <Line data={userChartData} />
+    <div id={theme.theme} className={styles.chartCon}>
+      <div className={styles.header}>
+        <h1>leaderboards </h1>
+        <p
+          style={{
+            color: theme.theme == "dark" ? "white" : "black",
+          }}
+        >
+          The chart plots a graph of players around the world using data from
+          the time they finished against their scores, so you can see how you
+          rank against other players{" "}
+        </p>
       </div>
-      <Link href="./">
+      <div className={styles.chart}>
+        <Line id="chart" data={data} options={chartOptions} />
+      </div>
+      <Link href="./profile">
         <button className={styles.restartBtn}>Restart Quiz </button>{" "}
       </Link>
     </div>

@@ -1,0 +1,81 @@
+.chartCon{
+    width: 100%;
+ 
+    overflow-y: auto;
+}
+
+
+.header h1{
+    text-align: center;
+    /* text-decoration: underline; */
+    font-family: 'Erode';
+    font-size: calc(40px + 0.25vw);
+    margin-top: 20px;
+}
+.header p{
+    font-size: calc(18px + 0.25vw);
+    line-height: 35px;
+   display: flex;
+   justify-content: center;
+     width:fit-content;
+    min-width: 70%;
+    max-width: 90%;
+   text-align: center;
+   margin: 10px auto;
+}
+.chart{
+    /* border: 2px green solid; */
+    display: flex;
+    justify-content: center;
+    margin: 10px auto;
+    width: 600px;
+    height: 400px;
+    /* width: 80%; */
+    /* max-width: 700px;
+    min-width: 400px; */
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+
+.chartControl{
+    width: 100%;
+    /* border: 2px red solid; */
+}
+.restartBtn{
+    font-size: 18px;
+    padding: 10px 25px;
+    outline: none;
+    border: 1px black solid;
+    transition: all 0.4 ease;
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+        color: black;
+        font-weight: 600;
+        border-radius: 30px;
+        cursor: pointer;
+        margin-top: 20px;
+}
+.restartBtn:hover{
+    background-color:rgb(51, 51, 175) ;
+        border: 1px blue solid;
+        transition: 0.4s ease;
+        color: white;
+        cursor: pointer;
+}
+
+@media (max-width:650px ) {
+    .chart{
+    border: 2px green solid;
+    width: 80%;
+    height: auto;
+    /* width: 80%;
+    height: auto; */
+    /* max-width: 200px; */
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+
+}

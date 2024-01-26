@@ -1,5 +1,5 @@
 import { signInWithPopup } from "firebase/auth";
-import { useContext } from "react";
+import { useEffect } from "react";
 import { auth, db, provider } from "../components/Firebase-config";
 import { AppContext } from "../helpers/helpers";
 import { useRouter } from "next/router";
@@ -13,43 +13,57 @@ const login = () => {
   const icon = <FcGoogle size={30} />;
 
   const router = useRouter();
+  const theme = useSelector((state) => state.currentTheme.value);
 
   const dispatch = useDispatch();
 
-  const signInWithGoogle = () => {
-    signInWithPopup(auth, provider)
-      .then((res) => {
-        dispatch(
-          loginUser({
-            id: res.user.uid,
-            name: res.user.displayName,
-            emails: res.user.email,
-            profilePics: res.user.photoURL,
+  //*If you want sign up/login to go properly make sure you use a tryCatch
+  const signInWithGoogle = async () => {
+    try {
+      await signInWithPopup(auth, provider)
+        .then(async (res) => {
+          dispatch(
+            loginUser({
+              id: res.user.uid,
+              name: res.user.displayName,
+              emails: res.user.email,
+              profilePics: res.user.photoURL,
+              score: 0,
+              time: 0,
+            })
+          );
+          localStorage.setItem("id", res.user.uid);
+          localStorage.setItem("email", res.user.email);
+          localStorage.setItem("name", res.user.displayName);
+          localStorage.setItem("photoUrl", res.user.photoURL);
+          await setDoc(doc(db, "users", res.user.uid), {
+            uid: res.user.uid,
+            username: res.user.displayName,
+            email: res.user.email,
+            profilePic: res.user.photoURL
+              ? res.user.photoURL
+              : "https://i.pinimg.com/564x/33/f4/d8/33f4d8c6de4d69b21652512cbc30bb05.jpg",
             score: 0,
             time: 0,
-          })
-        );
-        localStorage.setItem("id", res.user.uid);
-        localStorage.setItem("email", res.user.email);
-        localStorage.setItem("name", res.user.displayName);
-        localStorage.setItem("photoUrl", res.user.photoURL);
-        setDoc(doc(db, "users", res.user.uid), {
-          uid: res.user.uid,
-          username: res.user.displayName,
-          email: res.user.email,
-          profilePic: res.user.photoURL
-            ? res.user.photoURL
-            : "https://i.pinimg.com/564x/33/f4/d8/33f4d8c6de4d69b21652512cbc30bb05.jpg",
-          score: 0,
-          time: 0,
-        });
-        router.push("/");
-      })
+          });
+          router.push("/");
+        })
 
-      .catch((err) => {
-        console.log(err);
-      });
+        .catch((err) => {
+          console.log(err);
+        });
+    } catch (error) {
+      console.log(error);
+    }
   };
+
+  useEffect(() => {
+    if (localStorage) {
+      localStorage.setItem("theme", theme.theme);
+    } else {
+      console.log("errr");
+    }
+  }, [theme.theme]);
 
   const user = useSelector((state) => state.currentUser.value);
 
