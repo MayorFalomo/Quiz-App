@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import styles from "../styles/Login.module.css";
 import { FcGoogle } from "react-icons/fc";
 import { useDispatch, useSelector } from "react-redux";
-import { loginUser } from "./GlobalRedux/features/userSlice";
+import { loginUser } from "../components/GlobalRedux/features/userSlice";
 import { doc, setDoc } from "firebase/firestore";
 
 const login = () => {
