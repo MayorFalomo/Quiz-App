@@ -7,13 +7,12 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-   
 }
 .container .navbar{
     padding: 20px;
     display: flex;
     flex-direction: column;
-    gap: 50px;  
+    gap: 30px;  
         transition: 0.6s cubic-bezier(0.76, 0, 0.24, 1);
 }
 .activeCon .navbar{
@@ -64,17 +63,24 @@
 
 .container .header{
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 20px;
     font-size: 20px;
     color: white;
 }
 .activeCon .header{
     display: flex;
-    align-items: flex-start;
+    align-items: center !important;
     gap: 20px;
     font-size: 20px;
     color: white;
+}
+
+.container .header h1{
+    font-size: calc(35px + 0.25vw);
+}
+.activeCon .header h1{
+    font-size: calc(35px + 0.25vw);
 }
 
 .container .header .show{
@@ -170,7 +176,22 @@ transition: all 0.5s cubic-bezier(0.79, 0.33, 0.14, 0.53);
         -webkit-transition: all 0.6s cubic-bezier(0.79, 0.33, 0.14, 0.53);
 transition: all 0.6s cubic-bezier(0.79, 0.33, 0.14, 0.53);
     }
-    
+
+    .container .header h1{
+    font-size: calc(24px + 0.25vw);
+}
+.activeCon .header h1{
+    font-size: calc(24px + 0.25vw);
+}
+
+    .activeCon .social{
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 5px;
+    width: 50%;
+}
+
 }
 
 @media (max-width: 620px) {

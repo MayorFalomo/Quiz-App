@@ -1,11 +1,12 @@
 .container{
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 30px;
+    gap: 10px; */
       width: 100%;
     height: 100vh;
+    overflow-y: auto;
     position: relative;
 }
 
@@ -21,18 +22,31 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 40px;
-    width: 70%;
+    width: 100%;
+    height: 100%;
+    /* border: 2px red solid; */
+}
+
+.textsCon{
+  /* border: 2px green solid; */
+  margin: 0 auto;
+  width: 95%;
+      overflow: auto;
+
 }
 
 .main h1{
-    font-size: 50px;
+    font-size: calc(35px + 0.25vw);
+    font-family: "Erode";
+    text-align: center;
 }
 
 .main p{
-    font-size: 24px;
+        font-size: calc(18px + 0.25vw);
+        font-weight: 600;
         line-height: 35px;
 }
+
 .slideIn{
   position: absolute;
   top: 0;
@@ -50,4 +64,27 @@
   height: 100vh;
   background-color: #001219;
   transform-origin: top;
+}
+
+@media (max-width: 800px ) {
+  .container{
+    position: static;
+  }
+  .main {
+       width: 100%;
+}
+}
+
+@media (max-width: 450px ) {
+  .main p{
+      font-size: calc(16px + 0.25vw);
+}
+
+.textsCon::-webkit-scrollbar{
+  width: 0;
+}
+.textsCon{
+        padding-bottom: 80px;
+
+}
 }

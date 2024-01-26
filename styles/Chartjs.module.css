@@ -1,13 +1,11 @@
 .chartCon{
     width: 100%;
- 
     overflow-y: auto;
 }
 
 
 .header h1{
     text-align: center;
-    /* text-decoration: underline; */
     font-family: 'Erode';
     font-size: calc(40px + 0.25vw);
     margin-top: 20px;
@@ -67,15 +65,15 @@
 
 @media (max-width:650px ) {
     .chart{
-    border: 2px green solid;
-    width: 80%;
+    width: 90%;
     height: auto;
-    /* width: 80%;
-    height: auto; */
-    /* max-width: 200px; */
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
+}
+
+}
+
+@media (max-width:450px ) {
+    .header p{
+   font-size: calc(16px + 0.25vw);
 }
 
 }

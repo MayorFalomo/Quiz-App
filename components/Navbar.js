@@ -6,8 +6,8 @@ import { RxGithubLogo, RxHamburgerMenu, RxTwitterLogo } from "react-icons/rx";
 import { MdNightlight } from "react-icons/md";
 import { MdLightMode } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
-import { setTheme } from "../pages/GlobalRedux/features/themeSlice";
-import { setMenu } from "../pages/GlobalRedux/features/menuSlice";
+import { setTheme } from "../components/GlobalRedux/features/themeSlice";
+import { setMenu } from "../components/GlobalRedux/features/menuSlice";
 import { TbExternalLink } from "react-icons/tb";
 
 const Navbar = () => {
@@ -63,7 +63,7 @@ const Navbar = () => {
       <div className={styles.navbar}>
         <div className={styles.header}>
           <h1 onClick={toggleMenu} style={{ cursor: "pointer" }}>
-            {<RxHamburgerMenu size={50} color="white" />}
+            {<RxHamburgerMenu color="white" />}
           </h1>
           <h1 className={menuControl.menu ? styles.show : styles.hide}>
             {" "}

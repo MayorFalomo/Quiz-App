@@ -6,11 +6,11 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
-import { loginUser } from "../GlobalRedux/features/userSlice";
-import { scoreAnswer } from "../GlobalRedux/features/scoreSlice";
+import { loginUser } from "../../components/GlobalRedux/features/userSlice";
+import { scoreAnswer } from "../../components/GlobalRedux/features/scoreSlice";
 import { db } from "../../components/Firebase-config";
 import { setDoc, doc } from "firebase/firestore";
-import { timeUp } from "../GlobalRedux/features/timeUpSlice";
+import { timeUp } from "../../components/GlobalRedux/features/timeUpSlice";
 
 export default function quiz({ questions, delayResend = "150" }) {
   const [number, setNumber] = useState(0);

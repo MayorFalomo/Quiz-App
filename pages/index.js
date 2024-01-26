@@ -5,8 +5,8 @@ import { useEffect } from "react";
 import styles from "../styles/Home.module.css";
 
 import { useDispatch, useSelector } from "react-redux";
-import { loginUser } from "./GlobalRedux/features/userSlice";
-import { resetScore } from "./GlobalRedux/features/scoreSlice";
+import { loginUser } from "../components/GlobalRedux/features/userSlice";
+import { resetScore } from "../components/GlobalRedux/features/scoreSlice";
 
 export default function Home() {
   // const { theme } = useContext(AppContext);

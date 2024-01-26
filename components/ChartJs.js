@@ -49,7 +49,7 @@ const ChartJs = ({ data }) => {
       <div className={styles.chart}>
         <Line id="chart" data={data} options={chartOptions} />
       </div>
-      <Link href="./profile">
+      <Link href="./Profile">
         <button className={styles.restartBtn}>Restart Quiz </button>{" "}
       </Link>
     </div>

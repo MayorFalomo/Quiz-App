@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "../styles/globals.css";
 import Layout from "../components/Layout";
 // import { AppContext } from "../helpers/helpers";
-import { Providers } from "./GlobalRedux/Provider";
+import { Providers } from "../components/GlobalRedux/Provider";
 import { useRouter } from "next/router";
 
 function MyApp({ Component, pageProps }) {

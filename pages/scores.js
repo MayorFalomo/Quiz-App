@@ -1,28 +1,20 @@
 import Link from "next/link";
 import React, { useEffect } from "react";
-import { AppContext } from "../helpers/helpers";
 import styles from "../styles/Scores.module.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { useDispatch, useSelector } from "react-redux";
-import { resetScore } from "./GlobalRedux/features/scoreSlice";
+import { useSelector } from "react-redux";
 
 const scores = () => {
   const theme = useSelector((state) => state.currentTheme.value);
   const score = useSelector((state) => state.score.value);
   const time = useSelector((state) => state.time.value);
 
-  console.log(time.timeUpMessage, "This is score");
-  const dispatch = useDispatch();
   useEffect(() => {
     AOS.init();
     AOS.refresh();
   }, []);
 
-  // console.log(score.score, "score");
-  // const { score, theme } = useContext(AppContext);
-
-  // console.log(time.timeUpMessage);
   return (
     <div id={theme.theme} data-aos="zoom-in-up" className={styles.container}>
       <h1

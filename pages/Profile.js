@@ -6,14 +6,15 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
-import { setTheme } from "./GlobalRedux/features/themeSlice";
+import { setTheme } from "../components/GlobalRedux/features/themeSlice";
 import { AnimatePresence, motion } from "framer-motion";
+import { resetScore } from "../components/GlobalRedux/features/scoreSlice";
 
 const Profile = () => {
   // const { theme } = useContext(AppContext);
 
   const router = useRouter();
-
+  const dispatch = useDispatch();
   const user = useSelector((state) => state.currentUser.value);
   const theme = useSelector((state) => state.currentTheme.value);
 
@@ -27,6 +28,8 @@ const Profile = () => {
   }, []);
 
   useEffect(() => {
+    dispatch(resetScore({ score: 0 }));
+
     if (localStorage) {
       localStorage.setItem("theme", theme.theme);
     } else {
@@ -40,7 +43,7 @@ const Profile = () => {
     <AnimatePresence mode="wait">
       <motion.div id={theme.theme} className={styles.container}>
         <div className={styles.profileImage}>
-          <img src={photo || user.profilePics || ""} alt="img" />{" "}
+          <img src={photo ? photo || user.profilePics : ""} alt="img" />{" "}
         </div>
         <h2 style={{ color: theme.theme == "dark" ? "white" : "black" }}>
           {" "}
