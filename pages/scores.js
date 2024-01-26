@@ -1,19 +1,11 @@
 import Link from "next/link";
-import React, { useEffect } from "react";
 import styles from "../styles/Scores.module.css";
-import AOS from "aos";
-import "aos/dist/aos.css";
 import { useSelector } from "react-redux";
 
 const scores = () => {
   const theme = useSelector((state) => state.currentTheme.value);
   const score = useSelector((state) => state.score.value);
   const time = useSelector((state) => state.time.value);
-
-  useEffect(() => {
-    AOS.init();
-    AOS.refresh();
-  }, []);
 
   return (
     <div id={theme.theme} data-aos="zoom-in-up" className={styles.container}>

@@ -1,34 +1,97 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# Trivial-Quiz-app
 
-First, run the development server:
+Trivial Quiz App is a Full Stack application built using Next js, Next js core CSS modules, Firebase and Redux for State management, Chart Js and Framer Motion, it was designed and developed by me.
+## Demo
+
+https://trivial-quiz-app.netlify.app/
+![Logo](https://res.cloudinary.com/dsghy4siv/image/upload/v1701440383/fq6pfagnc4zrtezzrujp.png)
+
+
+## Features
+
+- Random Multiple varied questions.
+- A countdown Timer that submits for you if you don't.
+- A real-time Chart showing ratio of wins-losses. 
+- A Leaderboard.
+- Cute little messages depending on your score.
+- One time user login.
+- Light and Darkmode.
+- Cool looking animations.
+## Tech Stack
+
+**Client:** Next Js, CSS, Firebase, Framer Motion, Redux.
+
+**Backend:** Firebase
+
+
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
+
+
+## Support
+
+For support, email mayorfalomo@gmail.com or contact me via any platform.
+
+
+## Optimizations
+
+I needed my web application to be fast so i used Next Js which is known for it's speed.
+
+I avoided making too many API Calls and instead used Redux to pass and update my states and avoid re-renders throughtout my application.
+
+Login is passwordless and one-time.
+
+i made sure Components were reusable so i didn't have to build too many components from screatch.
+
+All useEfects have a dependency Array, so there's no chance of your browser crashing from too many repeated API calls.
+## Deployment
+
+To deploy this project run
 
 ```bash
-npm run dev
-# or
-yarn dev
+  npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## 🛠 Skills
+Javascript, HTML, CSS...
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+React, Next Js, Typescript, Vue js...
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Styled Components, Sass , Tailwind, Redux
 
-## Learn More
+Node Js, Express, MongoDb...
 
-To learn more about Next.js, take a look at the following resources:
+Firebase.
+## Lessons Learned
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Previously i built this app using context but i refactored the entire codebase to use redux instead.
+## Run Locally
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Clone the project
 
-## Deploy on Vercel
+```bash
+  git clone https://link-to-project
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Go to the project directory
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```bash
+  cd my-project
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  npm run dev
+```
+

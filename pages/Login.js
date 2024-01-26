@@ -1,7 +1,7 @@
 import { signInWithPopup } from "firebase/auth";
 import { useEffect } from "react";
 import { auth, db, provider } from "../components/Firebase-config";
-import { AppContext } from "../helpers/helpers";
+// import { AppContext } from "../helpers/helpers";
 import { useRouter } from "next/router";
 import styles from "../styles/Login.module.css";
 import { FcGoogle } from "react-icons/fc";
@@ -70,7 +70,7 @@ const login = () => {
   // console.log(user, "I Am User");
 
   return (
-    <div className={styles.container}>
+    <div id={theme.theme} className={styles.container}>
       <div className={styles.main}>
         <h2>Welcome to Quiz App </h2>
         <button onClick={signInWithGoogle}>{icon} Sign In with Google </button>

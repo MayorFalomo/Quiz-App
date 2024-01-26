@@ -25,7 +25,6 @@ Chart.register(
 );
 const ChartJs = ({ data }) => {
   const theme = useSelector((state) => state.currentTheme.value);
-  Chart.defaults.backgroundColor = "red";
 
   const chartOptions = {
     maintainAspectRatio: true,

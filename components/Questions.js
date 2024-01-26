@@ -13,7 +13,7 @@ const Questions = ({ quest }) => {
   const [current, setCurrent] = useState(0);
 
   //   console.log(quest, "Now this is it");
-  console.log(quest[1], "Now ");
+  // console.log(quest[1], "Now ");
 
   //   const oldArray = [
   //     ...quizData[number].incorrectAnswers,

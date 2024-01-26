@@ -17,6 +17,7 @@ const Navbar = () => {
 
   const dispatch = useDispatch();
 
+  //useEffect to get theme from storage
   useEffect(() => {
     const getFromStorage = localStorage.getItem("theme");
     dispatch(
@@ -48,6 +49,7 @@ const Navbar = () => {
     localStorage.setItem("theme", theme.theme);
   };
 
+  //Function to toggle navbar
   const toggleMenu = async () => {
     dispatch(
       setMenu({
@@ -55,8 +57,6 @@ const Navbar = () => {
       })
     );
   };
-
-  // console.log(menuControl.menu, "Menu control");
 
   return (
     <nav className={menuControl.menu ? styles.activeCon : styles.container}>
@@ -91,7 +91,6 @@ const Navbar = () => {
               <div className={styles.toggleContain}>
                 <div
                   onClick={handleTheme}
-                  // onClick={handleChange}
                   className={theme.change ? styles.ballActive : styles.ball}
                 ></div>
               </div>
@@ -103,7 +102,6 @@ const Navbar = () => {
               <div className={styles.toggleContain}>
                 <div
                   onClick={handleSwitch}
-                  // onClick={handleChange}
                   className={theme.change ? styles.ballActive : styles.ball}
                 ></div>
               </div>

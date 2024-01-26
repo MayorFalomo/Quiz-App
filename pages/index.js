@@ -1,9 +1,7 @@
 import Head from "next/head";
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from "react";
 import styles from "../styles/Home.module.css";
-
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../components/GlobalRedux/features/userSlice";
 import { resetScore } from "../components/GlobalRedux/features/scoreSlice";
