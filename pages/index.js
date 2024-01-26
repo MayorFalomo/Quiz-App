@@ -10,9 +10,9 @@ export default function Home() {
   // const { theme } = useContext(AppContext);
   const theme = useSelector((state) => state.currentTheme.value);
   const dispatch = useDispatch();
+
   const user = useSelector((state) => state.currentUser.value);
   //This useEffect sets the theme key to the current theme in the state and runs again when theme changes
-
   useEffect(() => {
     if (localStorage) {
       localStorage.setItem("theme", theme.theme);
@@ -38,11 +38,8 @@ export default function Home() {
     dispatch(resetScore({ score: 0 }));
   }, []);
 
-  // console.log(user, "current user");
-
   return (
     <div id={theme.theme} className={styles.container}>
-      {/* <div data-aos="fade-up" data-aos-duration="3000"></div> */}
       <Head>
         <title>Quiz app</title>
         <meta name="description" content="Quiz app" />

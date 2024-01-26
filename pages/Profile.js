@@ -1,9 +1,6 @@
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import styles from "../styles/Profile.module.css";
-// import { AppContext } from "../helpers/helpers";
-// import AOS from "aos";
-// import "aos/dist/aos.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import { setTheme } from "../components/GlobalRedux/features/themeSlice";
@@ -51,9 +48,7 @@ const Profile = () => {
             ? localStorage.getItem("name")
             : user.name}
         </h2>
-        {/* <h2>{user.telephone} </h2> */}
         <h2 style={{ color: theme.theme == "dark" ? "white" : "black" }}>
-          {/* {user.email} */}
           {typeof window !== "undefined"
             ? localStorage.getItem("email")
             : user.email}{" "}

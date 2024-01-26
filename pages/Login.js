@@ -1,6 +1,6 @@
 import { signInWithPopup } from "firebase/auth";
 import { useEffect } from "react";
-import { auth, db, provider } from "../components/Firebase-config";
+import { auth, db, provider } from "../Firebase-config";
 // import { AppContext } from "../helpers/helpers";
 import { useRouter } from "next/router";
 import styles from "../styles/Login.module.css";

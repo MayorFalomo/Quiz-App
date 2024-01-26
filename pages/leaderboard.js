@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getFirestore, collection, getDocs } from "firebase/firestore";
 import { doc, setDoc } from "firebase/firestore";
-import { db } from "../components/Firebase-config";
+import { db } from "../Firebase-config";
 import ChartJs from "../components/ChartJs";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";

@@ -2,15 +2,17 @@
 # Trivial-Quiz-app
 
 Trivial Quiz App is a Full Stack application built using Next js, Next js core CSS modules, Firebase and Redux for State management, Chart Js and Framer Motion, it was designed and developed by me.
+
 ## Demo
 
 https://trivial-quiz-app.netlify.app/
+
 ![Logo](https://res.cloudinary.com/dsghy4siv/image/upload/v1701440383/fq6pfagnc4zrtezzrujp.png)
 
 
 ## Features
 
-- Random Multiple varied questions.
+- Random Multiple varied questions grading after you submit.
 - A countdown Timer that submits for you if you don't.
 - A real-time Chart showing ratio of wins-losses. 
 - A Leaderboard.
@@ -18,6 +20,7 @@ https://trivial-quiz-app.netlify.app/
 - One time user login.
 - Light and Darkmode.
 - Cool looking animations.
+
 ## Tech Stack
 
 **Client:** Next Js, CSS, Firebase, Framer Motion, Redux.
@@ -40,13 +43,14 @@ For support, email mayorfalomo@gmail.com or contact me via any platform.
 
 I needed my web application to be fast so i used Next Js which is known for it's speed.
 
-I avoided making too many API Calls and instead used Redux to pass and update my states and avoid re-renders throughtout my application.
+I avoided making too many API Calls and instead used Redux to pass and update my states and avoid re-renders throughout my application.
 
 Login is passwordless and one-time.
 
-i made sure Components were reusable so i didn't have to build too many components from screatch.
+i made sure Components were reusable so i didn't have to build too many components from scratch.
 
-All useEfects have a dependency Array, so there's no chance of your browser crashing from too many repeated API calls.
+All useEffects have a dependency Array, so there's no chance of your browser crashing from too many repeated API calls.
+
 ## Deployment
 
 To deploy this project run
@@ -57,6 +61,7 @@ To deploy this project run
 
 
 ## 🛠 Skills
+
 Javascript, HTML, CSS...
 
 React, Next Js, Typescript, Vue js...
@@ -66,9 +71,11 @@ Styled Components, Sass , Tailwind, Redux
 Node Js, Express, MongoDb...
 
 Firebase.
+
 ## Lessons Learned
 
 Previously i built this app using context but i refactored the entire codebase to use redux instead.
+
 ## Run Locally
 
 Clone the project

@@ -8,11 +8,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import { loginUser } from "../../components/GlobalRedux/features/userSlice";
 import { scoreAnswer } from "../../components/GlobalRedux/features/scoreSlice";
-import { db } from "../../components/Firebase-config";
+import { db } from "../../Firebase-config";
 import { setDoc, doc } from "firebase/firestore";
 import { timeUp } from "../../components/GlobalRedux/features/timeUpSlice";
 
-export default function quiz({ questions, delayResend = "150" }) {
+export default function quiz({ questions, delayResend = "120" }) {
   const [number, setNumber] = useState(0);
   const [quizData, setQuizData] = useState(questions);
   const [newQuestArray, setNewQuestArray] = useState([]);
