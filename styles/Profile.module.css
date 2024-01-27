@@ -75,7 +75,6 @@
 }
 @media (max-width: 800px) {
   .container{
-    border: 2px red solid;
     height: 100%;
   }
 }

@@ -127,21 +127,7 @@ export default function quiz({ questions, delayResend = "120" }) {
       const getAns = newQuestArray.find(
         (element) => element === quizData[number].correctAnswer
       );
-      console.log(getAns, "getans");
-      console.log(chosenOption);
       if (getAns == chosenOption) {
-        dispatch(
-          scoreAnswer({
-            score: score.score + 1,
-          }),
-          loginUser({
-            score: score.score + 1,
-            time: delay,
-          }),
-          timeUp({
-            timeUpMessage: false,
-          })
-        );
         //Using transactions in firebase i can run get, update etc. operations in a single call, first i initialize a run transaction method in firebase
         await runTransaction(db, async (transaction) => {
           const userDocRef = doc(db, "users", user.id); //This part searches for the user in the fireStore
@@ -156,6 +142,18 @@ export default function quiz({ questions, delayResend = "120" }) {
             });
           }
         });
+        dispatch(
+          scoreAnswer({
+            score: score.score + 1,
+          }),
+          loginUser({
+            score: score.score + 1,
+            time: delay,
+          }),
+          timeUp({
+            timeUpMessage: false,
+          })
+        );
       }
 
       //*Basic function to update a document in firebase
@@ -164,7 +162,11 @@ export default function quiz({ questions, delayResend = "120" }) {
       //   score: score.score + 1,
       //   time: 120 - delay,
       // });
-
+      dispatch(
+        timeUp({
+          timeUpMessage: false,
+        })
+      );
       router.push("/scores");
     } catch (error) {
       console.log(error);
