@@ -67,6 +67,13 @@
   .main {
        width: 100%;
 }
+.container::-webkit-scrollbar{
+  width: 0;
+}
+
+.textsCon::-webkit-scrollbar{
+  width: 0;
+}
 }
 
 @media (max-width: 450px ) {
@@ -74,9 +81,7 @@
       font-size: calc(16px + 0.25vw);
 }
 
-.textsCon::-webkit-scrollbar{
-  width: 0;
-}
+
 .textsCon{
         padding-bottom: 80px;
 
