@@ -345,7 +345,7 @@ export default function quiz({ questions, delayResend = "120" }) {
               Next{" "}
             </button>
           )}
-          {showAnswer ? (
+          {/* {showAnswer ? (
             <button
               onClick={() => setShowAnswer(false)}
               className={styles.next}
@@ -356,9 +356,9 @@ export default function quiz({ questions, delayResend = "120" }) {
             <button onClick={() => setShowAnswer(true)} className={styles.next}>
               Show Answer{" "}
             </button>
-          )}
+          )} */}
         </div>
-        <p> {showAnswer ? quizData[number].correctAnswer : ""}</p>
+        {/* <p> {showAnswer ? quizData[number].correctAnswer : ""}</p> */}
       </div>
     </div>
   );

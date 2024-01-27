@@ -48,18 +48,14 @@ const Profile = () => {
             ? localStorage.getItem("name")
             : user.name}
         </h2>
-        <h2 style={{ color: theme.theme == "dark" ? "white" : "black" }}>
+        <h2>
           {typeof window !== "undefined"
             ? localStorage.getItem("email")
             : user.email}{" "}
         </h2>
-        <p style={{ color: theme.theme == "dark" ? "white" : "black" }}>
-          Account Admin: Falomo Mayowa{" "}
-        </p>
+        <p>Account Admin: Falomo Mayowa </p>
         <Link href="./questions">
-          <button style={{ color: theme.theme == "dark" ? "white" : "black" }}>
-            Start Quiz{" "}
-          </button>
+          <button>Start Quiz </button>
         </Link>
 
         <motion.div
