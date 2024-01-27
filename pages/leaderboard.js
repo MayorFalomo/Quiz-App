@@ -63,6 +63,8 @@ const leaderboard = () => {
     ],
   };
 
+  console.log(users, "users");
+
   return (
     <div id={theme.theme} className={styles.AllUsers}>
       <ChartJs data={data} />
@@ -76,7 +78,7 @@ const leaderboard = () => {
         <div className={styles.usersMap}>
           {users
             .sort((a, b) => (b.score ?? -Infinity) - (a.score ?? -Infinity))
-            .map((user) => {
+            .map((user, index) => {
               return (
                 <div
                   className={
@@ -86,7 +88,7 @@ const leaderboard = () => {
                   }
                   key={user.id}
                 >
-                  <AllUsers user={user} />
+                  <AllUsers user={user} index={index} />
                 </div>
               );
             })}
@@ -96,7 +98,7 @@ const leaderboard = () => {
   );
 };
 
-const AllUsers = ({ user }) => {
+const AllUsers = ({ user, index }) => {
   const theme = useSelector((state) => state.currentTheme.value);
 
   return (
@@ -118,7 +120,7 @@ const AllUsers = ({ user }) => {
             }}
             className={styles.username}
           >
-            {user.name}
+            {user.username}
           </span>
         </div>
         <p>{user.score} </p>

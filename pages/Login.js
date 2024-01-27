@@ -39,7 +39,7 @@ const login = () => {
           //Creates the user instance in fireStore
           await setDoc(doc(db, "users", res.user.uid), {
             uid: res.user.uid,
-            username: res.user.displayName,
+            name: res.user.displayName,
             email: res.user.email,
             profilePic: res.user.photoURL
               ? res.user.photoURL
@@ -47,12 +47,12 @@ const login = () => {
             score: 0,
             time: 0,
           });
-          router.push("/");
         })
 
         .catch((err) => {
           console.log(err);
         });
+      router.push("/profile");
     } catch (error) {
       console.log(error);
     }

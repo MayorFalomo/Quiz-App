@@ -12,11 +12,7 @@ const Layout = ({ children }) => {
   return (
     <div className={menuControl.menu ? styles.menuActive : styles.menu}>
       <Navbar />
-      <AnimatePresence mode="wait">
-        <div key={router.pathname} className={styles.mainContain}>
-          {children}
-        </div>
-      </AnimatePresence>
+      {children}
     </div>
   );
 };

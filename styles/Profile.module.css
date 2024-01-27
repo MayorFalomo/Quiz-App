@@ -6,6 +6,9 @@
     gap: 20px;
     width: 100%;
     height: 100vh;
+    overflow: auto;
+     place-content: center;
+   vertical-align: middle;
     position: relative;
 }
 
@@ -44,6 +47,10 @@
     border-radius: 50%;
 }
 
+.container h2{
+    font-size: calc(22px + 0.25vw);
+}
+
 .container button{
     padding: 15px 30px;
     border-radius: 10px;
@@ -51,6 +58,7 @@
      font-size: calc(18px + 0.25vw);
     border: none;
     outline: 0;
+    color: #000;
     cursor: pointer;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
@@ -67,6 +75,7 @@
 }
 @media (max-width: 800px) {
   .container{
-    height: 100vh;
+    border: 2px red solid;
+    height: 100%;
   }
 }

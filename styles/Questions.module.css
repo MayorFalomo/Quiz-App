@@ -1,13 +1,17 @@
 .container{
     width: 100%;
-    height: 100vh;
+    height: 100vh !important;
+    /* overflow-y: auto; */
+     place-content: center;
+   vertical-align: middle;
+       /* overflow-y: auto; */
+
 }
 .container .profile{
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    padding: 20px;
-    /* border: 2px red solid; */
+    padding: 10px;
 }
 
 .timer{
@@ -69,8 +73,6 @@
     justify-content: center;
     /* border: 2px red solid; */
     height: 70%;
-    /* margin-bottom: 40px; */
-    /* height: 60vh; */
 }
 
 .questDark{
@@ -193,12 +195,16 @@ color: #fff;
    border: 1px black solid;
 }
 
+#persistLightColor{
+   background-color: white !important;
+   color: black !important;
+   border: 1px blue solid;
+}
+
 .list .list1 .flex {
     display: flex;
     align-items: center;
     gap: 30px;
-    /* border: 2px red solid; */
-    /* background: #fff; */
 }
 .list .list2 .flexOption {
     display: flex;
@@ -229,11 +235,23 @@ color: #fff;
   .container{
     height: 100vh;
     width: 100%;
+     place-content: center;
+   vertical-align: middle;
+   overflow-y: auto;
+  }
+  .container::-webkit-scrollbar{
+    width: 0;
   }
    .container .profilePic{
     width: 80px;
     height: 80px;
   }
+  
+    .main{
+vertical-align: middle;
+place-content: center;
+height: 100%;
+    }
   .list{
     width: 100%;
   }
@@ -243,6 +261,7 @@ color: #fff;
         margin-bottom: 20px;
         padding: 7px;
     }
+
   
   .list{
     display: flex;
@@ -278,9 +297,7 @@ color: #fff;
     font-size: calc(14px + 0.25vw);
   }
   .container{
-     min-height: 100vh;
-     /* border: 3px red solid; */
-     margin-bottom: 40px;
+     height: 100vh;
   }
   .list2 button{
     /* font-size: 16px; */

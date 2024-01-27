@@ -4,9 +4,11 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  /* border: 2px red solid; */
    width: 100% !important;
+   place-content: center;
+   vertical-align: middle;
     height: 100vh !important;
+    overflow: auto;
 }
 
 .HeroImg{
@@ -18,7 +20,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+   place-content: center;
+   vertical-align: middle;
   gap: 30px;
+    /* border: 2px green solid; */
+
 }
 .heading h1{
   font-size: 60px;
@@ -36,7 +42,7 @@
 }
 
 .heading p{
-  font-size: 22px;
+  font-size: calc(18px + 0.25vw);
 }
 
 @media (max-width: 520px) {

@@ -35,6 +35,11 @@ img{
     color: black;
     background-color: #E7EDF6;
 }
+
+#light body{
+  background-color: #E7EDF6;
+  color: black;
+}
 #dark{
     background-color:  #001219;
     color: white;

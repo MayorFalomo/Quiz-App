@@ -19,26 +19,28 @@
     height: 100%;
 }
 
-
-
 @media (max-width: 800px) {
     .menu{
         display: flex;
         flex-direction: column;
         transition: 0.5s ease;
+        height: 100vh;
+        width: 100%;
+        place-content: center;
+        vertical-align: middle;
+        overflow: hidden;    
     }
     .menuActive{
         display: flex;
         flex-direction: column;
         transition: 0.5s ease;
+        height: 100vh;
+        width: 100%;
+        overflow: hidden;
+        place-content: center;
+        vertical-align: middle;
     }
     .menu::-webkit-scrollbar{
     width: 0;
 }
-}
-
-@media (max-width: 620px) {
-    .menuActive{
-        transition: 0.5s ease;
-    }
 }

@@ -179,7 +179,7 @@ export default function quiz({ questions, delayResend = "120" }) {
   };
 
   // console.log(quizData[0], "number");
-  console.log(delay, "delay");
+  // console.log(delay, "delay");
 
   return (
     <div id={theme.theme} className={styles.container}>
@@ -229,6 +229,8 @@ export default function quiz({ questions, delayResend = "120" }) {
                 id={
                   current === 1 && theme.theme == "dark"
                     ? styles.persistColor
+                    : current === 1 && theme.theme == "light"
+                    ? styles.persistLightColor
                     : ""
                 }
                 onClick={() => {
