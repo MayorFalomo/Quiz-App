@@ -41,9 +41,10 @@ const login = () => {
             uid: res.user.uid,
             name: res.user.displayName,
             email: res.user.email,
-            profilePic: res.user.photoURL
-              ? res.user.photoURL
-              : "https://i.pinimg.com/564x/33/f4/d8/33f4d8c6de4d69b21652512cbc30bb05.jpg",
+            profilePic:
+              res.user.photoURL.length > 0
+                ? res.user.photoURL
+                : "https://i.pinimg.com/564x/33/f4/d8/33f4d8c6de4d69b21652512cbc30bb05.jpg",
             score: 0,
             time: 0,
           });

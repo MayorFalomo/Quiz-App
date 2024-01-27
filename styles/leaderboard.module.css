@@ -1,8 +1,11 @@
 
 .AllUsers{
-    /* border: 2px green solid; */
     height: 100vh;
     overflow-y: auto !important;
+}
+
+.AllUsers::-webkit-scrollbar{
+    width: 0;
 }
 
  /* #dark{
@@ -90,6 +93,8 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    background-color: #000;
+    border: 1px white solid;
 }
 
 @media (max-width: 1300px) {

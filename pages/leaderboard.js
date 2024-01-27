@@ -63,8 +63,6 @@ const leaderboard = () => {
     ],
   };
 
-  console.log(users, "users");
-
   return (
     <div id={theme.theme} className={styles.AllUsers}>
       <ChartJs data={data} />
@@ -98,7 +96,7 @@ const leaderboard = () => {
   );
 };
 
-const AllUsers = ({ user, index }) => {
+const AllUsers = ({ user }) => {
   const theme = useSelector((state) => state.currentTheme.value);
 
   return (
@@ -120,7 +118,7 @@ const AllUsers = ({ user, index }) => {
             }}
             className={styles.username}
           >
-            {user.username}
+            {user.name}
           </span>
         </div>
         <p>{user.score} </p>

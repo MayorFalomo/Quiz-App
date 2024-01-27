@@ -10,25 +10,26 @@ import { db } from "../../Firebase-config";
 import { setDoc, doc, runTransaction } from "firebase/firestore";
 import { timeUp } from "../../components/GlobalRedux/features/timeUpSlice";
 import { getFirestore, collection, getDocs } from "firebase/firestore";
+import Questions from "../../components/Questions";
 
 export default function quiz({ questions, delayResend = "120" }) {
   const [number, setNumber] = useState(0);
   const [quizData, setQuizData] = useState(questions);
   const [newQuestArray, setNewQuestArray] = useState([]);
   const [numbering, setNumbering] = useState(1);
-  const [initialRenderComplete, setInitialRenderComplete] = useState(false);
   const [chosenOption, setChosenOption] = useState("");
   const [showAnswer, setShowAnswer] = useState(false);
   const [current, setCurrent] = useState(0);
-  const [users, setUsers] = useState([]);
+  const dispatch = useDispatch();
+  const router = useRouter();
 
   const user = useSelector((state) => state.currentUser.value);
   const theme = useSelector((state) => state.currentTheme.value);
   const score = useSelector((state) => state.score.value);
 
-  const dispatch = useDispatch();
-
-  const router = useRouter();
+  const [delay, setDelay] = useState(+delayResend);
+  const minutes = Math.floor(delay / 60);
+  const seconds = Math.floor(delay % 60);
 
   //UseEffect to check if the id is present in storage and if it's not route the user to login
   useEffect(() => {
@@ -48,7 +49,6 @@ export default function quiz({ questions, delayResend = "120" }) {
     }
   }, [theme.theme]);
 
-  //UseEffect to run the loginUser Object and assign them value
   useEffect(() => {
     dispatch(
       loginUser({
@@ -61,22 +61,6 @@ export default function quiz({ questions, delayResend = "120" }) {
       })
     );
   }, []);
-
-  //useEffect to add the correct answer into the spread array of incorrect answers to form a new array of four options
-  useEffect(() => {
-    const oldArray = [
-      ...quizData[number].incorrectAnswers,
-      quizData[number].correctAnswer,
-    ];
-
-    //Then this Function gets the above array and shuffles the options in the array so the options are arranged randomly then assigns that array to the newQuest State then the dependency array runs only when the quizData[number] changes so the options are then shuffled again and so on
-    const newArray = oldArray.sort(() => (Math.random() > 0.5 ? 1 : -1));
-    setNewQuestArray(newArray);
-  }, [quizData[number]]);
-
-  const [delay, setDelay] = useState(+delayResend);
-  const minutes = Math.floor(delay / 60);
-  const seconds = Math.floor(delay % 60);
 
   //useEffect to run the timer function sets a delay of -1 so -1 is subtracted at every 1s interval then if the delay  == 0 then clear the the Interval and run the dispatch state that triggers a message and route to another page  the clear interval also clears the interval every second but the if runs only when the delay == 0
   useEffect(() => {
@@ -100,6 +84,17 @@ export default function quiz({ questions, delayResend = "120" }) {
       clearInterval(timer);
     };
   }, [delay]);
+
+  useEffect(() => {
+    const oldArray = [
+      ...quizData[number].incorrectAnswers,
+      quizData[number].correctAnswer,
+    ];
+
+    //Then this Function gets the above array and shuffles the options in the array so the options are arranged randomly then assigns that array to the newQuest State then the dependency array runs only when the quizData[number] changes so the options are then shuffled again and so on
+    const newArray = oldArray.sort(() => (Math.random() > 0.5 ? 1 : -1));
+    setNewQuestArray(newArray);
+  }, [quizData[number]]);
 
   // Increase the number & index onClick of Next button
   const increase = () => {
@@ -174,14 +169,10 @@ export default function quiz({ questions, delayResend = "120" }) {
   };
 
   const decrease = () => {
-    // if(quizData[number])
     setNumber(number - 1);
     setNumbering(numbering - 1);
     setCurrent(0);
   };
-
-  // console.log(quizData[0], "number");
-  // console.log(delay, "delay");
 
   return (
     <div id={theme.theme} className={styles.container}>
@@ -207,11 +198,11 @@ export default function quiz({ questions, delayResend = "120" }) {
           </h2>
         </div>
       </div>
-
       <div className={styles.main}>
         <h2
           className={theme.theme == "dark" ? styles.questDark : styles.question}
         >
+          {" "}
           {numbering}. {questions[number].question}{" "}
         </h2>
         <div className={styles.list}>
@@ -244,11 +235,7 @@ export default function quiz({ questions, delayResend = "120" }) {
               </button>
             </div>
 
-            <div
-              // data-aos="flip-left"
-              // data-aos-duration="2000"
-              className={styles.flex}
-            >
+            <div className={styles.flex}>
               <h3
                 className={
                   theme.theme == "dark" ? styles.questDark : styles.question
@@ -300,11 +287,7 @@ export default function quiz({ questions, delayResend = "120" }) {
                 <li>{newQuestArray[2]}</li>
               </button>
             </div>
-            <div
-              // data-aos="flip-left"
-              // data-aos-duration="2500"
-              className={styles.flexOption}
-            >
+            <div className={styles.flexOption}>
               <h3
                 className={
                   theme.theme == "dark" ? styles.questDark : styles.question
@@ -332,8 +315,6 @@ export default function quiz({ questions, delayResend = "120" }) {
         </div>
         <div className={styles.btnStyle}>
           <button
-            // data-aos="fade-down"
-            // data-aos-duration="2000"
             onClick={decrease}
             className={styles.prev}
             disabled={number == 0 ? true : false}
@@ -346,12 +327,7 @@ export default function quiz({ questions, delayResend = "120" }) {
               Finish Quiz{" "}
             </button>
           ) : (
-            <button
-              onClick={increase}
-              // data-aos="fade-down"
-              // data-aos-duration="2500"
-              className={styles.next}
-            >
+            <button onClick={increase} className={styles.next}>
               Next{" "}
             </button>
           )}
@@ -366,22 +342,25 @@ export default function quiz({ questions, delayResend = "120" }) {
             <button onClick={() => setShowAnswer(true)} className={styles.next}>
               Show Answer{" "}
             </button>
-          )} */}
+          )}
+          {
+            <p> {showAnswer ? quizData[number].correctAnswer : ""}</p>
+          } */}
         </div>
-        {/* <p> {showAnswer ? quizData[number].correctAnswer : ""}</p> */}
       </div>
     </div>
   );
 }
 
-export const getStaticProps = async () => {
-  const data = await axios.get("https://the-trivia-api.com/api/questions");
-
-  // const data = req;
-  const initialData = data.data;
+export const getServerSideProps = async () => {
+  const res = await axios.get(
+    "https://the-trivia-api.com/api/questions?limit=10"
+  );
+  const data = res.data;
+  console.log(res.data);
   return {
     props: {
-      questions: initialData,
+      questions: data,
     },
   };
 };

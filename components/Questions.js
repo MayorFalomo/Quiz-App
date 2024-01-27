@@ -1,16 +1,51 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../styles/Questions.module.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useRouter } from "next/router";
+import { loginUser } from "./GlobalRedux/features/userSlice";
+import { scoreAnswer } from "./GlobalRedux/features/scoreSlice";
+import { db } from "../Firebase-config";
+import { setDoc, doc, runTransaction } from "firebase/firestore";
+import { timeUp } from "./GlobalRedux/features/timeUpSlice";
+import { getFirestore, collection, getDocs } from "firebase/firestore";
+// import Questions from "../../components/Questions";
 
-const Questions = ({ quest }) => {
+const Questions = ({ questions, delay, quizData, numbering, number }) => {
+  // const [number, setNumber] = useState(0);
+  // const [quizData, setQuizData] = useState(questions);
+
+  // const [newQuestArray, setNewQuestArray] = useState([]);
+  // const [numbering, setNumbering] = useState(1);
+  // const [chosenOption, setChosenOption] = useState("");
+  // const [showAnswer, setShowAnswer] = useState(false);
+  // const [current, setCurrent] = useState(0);
+  const [users, setUsers] = useState([]);
+
+  const user = useSelector((state) => state.currentUser.value);
   const theme = useSelector((state) => state.currentTheme.value);
-  const [number, setNumber] = useState(0);
+  const score = useSelector((state) => state.score.value);
 
-  const [numbering, setNumbering] = useState(1);
-  const [initialRenderComplete, setInitialRenderComplete] = useState(false);
-  const [chosenOption, setChosenOption] = useState();
-  const [showAnswer, setShowAnswer] = useState(false);
-  const [current, setCurrent] = useState(0);
+  const dispatch = useDispatch();
+
+  const router = useRouter();
+
+  //UseEffect to run the loginUser Object and assign them value
+  // useEffect(() => {
+  //   dispatch(
+  //     loginUser({
+  //       id: localStorage.getItem("id"),
+  //       name: localStorage.getItem("name"),
+  //       email: localStorage.getItem("email"),
+  //       profilePics: localStorage.getItem("photoUrl"),
+  //       score: 0,
+  //       time: 0,
+  //     })
+  //   );
+  // }, []);
+
+  // console.log(questions, "question 0");
+
+  //useEffect to add the correct answer into the spread array of incorrect answers to form a new array of four options
 
   //   console.log(quest, "Now this is it");
   // console.log(quest[1], "Now ");
@@ -100,11 +135,124 @@ const Questions = ({ quest }) => {
     <div id={theme.theme} className={styles.container}>
       <div>
         <div className={styles.main}>
-          <h2 className={styles.question}>
-            {numbering}. {quest.questions}{" "}
-          </h2>
+          <div className={styles.main}>
+            <h2
+              className={
+                theme.theme == "dark" ? styles.questDark : styles.question
+              }
+            >
+              {" "}
+              {numbering}. {questions[number].question}{" "}
+            </h2>
+            <div className={styles.list}>
+              {/* <ul className={styles.list1}>
+                <div className={styles.flex}>
+                  <h3
+                    className={
+                      theme.theme == "dark" ? styles.questDark : styles.question
+                    }
+                  >
+                    A.{" "}
+                  </h3>
+                  <button
+                    className={
+                      theme.theme == "dark" ? styles.darken : styles.lighten
+                    }
+                    id={
+                      current === 1 && theme.theme == "dark"
+                        ? styles.persistColor
+                        : current === 1 && theme.theme == "light"
+                        ? styles.persistLightColor
+                        : ""
+                    }
+                    onClick={() => {
+                      setChosenOption(newQuestArray[0]);
+                      setCurrent(1);
+                    }}
+                  >
+                    <li>{newQuestArray[0]} </li>
+                  </button>
+                </div>
 
-          {/* <p> {showAnswer ? quizData[number].correctAnswer : ""}</p> */}
+                <div className={styles.flex}>
+                  <h3
+                    className={
+                      theme.theme == "dark" ? styles.questDark : styles.question
+                    }
+                  >
+                    B.{" "}
+                  </h3>
+                  <button
+                    id={
+                      current === 2 && theme.theme == "dark"
+                        ? styles.persistColor
+                        : current === 2 && theme.theme == "light"
+                        ? styles.persistLightColor
+                        : ""
+                    }
+                    onClick={() => {
+                      setChosenOption(newQuestArray[1]);
+                      setCurrent(2);
+                    }}
+                  >
+                    {" "}
+                    <li> {newQuestArray[1]} </li>
+                  </button>
+                </div>
+              </ul>
+
+              <ul className={styles.list2}>
+                <div className={styles.flexOption}>
+                  <h3
+                    className={
+                      theme.theme == "dark" ? styles.questDark : styles.question
+                    }
+                  >
+                    C.{" "}
+                  </h3>
+                  <button
+                    id={
+                      current === 3 && theme.theme == "dark"
+                        ? styles.persistColor
+                        : current === 3 && theme.theme == "light"
+                        ? styles.persistLightColor
+                        : ""
+                    }
+                    onClick={() => {
+                      setChosenOption(newQuestArray[2]);
+                      setCurrent(3);
+                    }}
+                  >
+                    <li>{newQuestArray[2]}</li>
+                  </button>
+                </div>
+                <div className={styles.flexOption}>
+                  <h3
+                    className={
+                      theme.theme == "dark" ? styles.questDark : styles.question
+                    }
+                  >
+                    D.{" "}
+                  </h3>
+                  <button
+                    id={
+                      current === 4 && theme.theme == "dark"
+                        ? styles.persistColor
+                        : current === 4 && theme.theme == "light"
+                        ? styles.persistLightColor
+                        : ""
+                    }
+                    onClick={() => {
+                      setChosenOption(newQuestArray[3]);
+                      setCurrent(4);
+                    }}
+                  >
+                    <li>{newQuestArray[3]} </li>
+                  </button>
+                </div>
+              </ul> */}
+            </div>
+          </div>
         </div>
       </div>
     </div>
