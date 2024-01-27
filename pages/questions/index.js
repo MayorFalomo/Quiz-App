@@ -258,6 +258,8 @@ export default function quiz({ questions, delayResend = "120" }) {
                 id={
                   current === 2 && theme.theme == "dark"
                     ? styles.persistColor
+                    : current === 2 && theme.theme == "light"
+                    ? styles.persistLightColor
                     : ""
                 }
                 onClick={() => {
@@ -284,6 +286,8 @@ export default function quiz({ questions, delayResend = "120" }) {
                 id={
                   current === 3 && theme.theme == "dark"
                     ? styles.persistColor
+                    : current === 3 && theme.theme == "light"
+                    ? styles.persistLightColor
                     : ""
                 }
                 onClick={() => {
@@ -310,6 +314,8 @@ export default function quiz({ questions, delayResend = "120" }) {
                 id={
                   current === 4 && theme.theme == "dark"
                     ? styles.persistColor
+                    : current === 4 && theme.theme == "light"
+                    ? styles.persistLightColor
                     : ""
                 }
                 onClick={() => {
