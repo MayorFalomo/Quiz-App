@@ -27,7 +27,7 @@ const login = () => {
               id: res.user.uid,
               name: res.user.displayName,
               emails: res.user.email,
-              profilePics: res.user.photoURL,
+              profilePic: res.user.photoURL,
               score: 0,
               time: 0,
             })

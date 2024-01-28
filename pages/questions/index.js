@@ -55,7 +55,7 @@ export default function quiz({ questions, delayResend = "120" }) {
         id: localStorage.getItem("id"),
         name: localStorage.getItem("name"),
         email: localStorage.getItem("email"),
-        profilePics: localStorage.getItem("photoUrl"),
+        profilePic: localStorage.getItem("photoUrl"),
         score: 0,
         time: 0,
       })
@@ -184,7 +184,7 @@ export default function quiz({ questions, delayResend = "120" }) {
         <div className={styles.mainProfile}>
           <div
             style={{
-              backgroundImage: `url(${user.profilePics})`,
+              backgroundImage: `url(${user.profilePic})`,
             }}
             className={styles.profilePic}
           ></div>

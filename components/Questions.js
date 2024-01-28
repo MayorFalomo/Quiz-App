@@ -36,7 +36,7 @@ const Questions = ({ questions, delay, quizData, numbering, number }) => {
   //       id: localStorage.getItem("id"),
   //       name: localStorage.getItem("name"),
   //       email: localStorage.getItem("email"),
-  //       profilePics: localStorage.getItem("photoUrl"),
+  //       profilePic: localStorage.getItem("photoUrl"),
   //       score: 0,
   //       time: 0,
   //     })

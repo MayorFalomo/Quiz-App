@@ -75,8 +75,10 @@ const leaderboard = () => {
         </div>
         <div className={styles.usersMap}>
           {users
+            .map((user) => ({ ...user }))
             .sort((a, b) => (b.score ?? -Infinity) - (a.score ?? -Infinity))
             .map((user, index) => {
+              user.rank = index + 1;
               return (
                 <div
                   className={
@@ -98,17 +100,14 @@ const leaderboard = () => {
 
 const AllUsers = ({ user }) => {
   const theme = useSelector((state) => state.currentTheme.value);
-
   return (
     <div className={styles.userDataContainer}>
       <div className={styles.userData}>
         <div className={styles.userInfoArea}>
-          <span>{user.index == 1 ? "🏆 " : `#${user.index}`} </span>
+          <span>{user.rank == 1 ? "🏆 " : `#${user.urank}`} </span>
           <div
             style={{
-              backgroundImage: user.profilePics
-                ? `url(${user.profilePics})`
-                : "",
+              backgroundImage: user.profilePic ? `url(${user.profilePic})` : "",
             }}
             className={styles.userDataBgImg}
           ></div>

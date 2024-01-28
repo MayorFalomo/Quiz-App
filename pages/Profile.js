@@ -40,7 +40,7 @@ const Profile = () => {
     <AnimatePresence mode="wait">
       <motion.div id={theme.theme} className={styles.container}>
         <div className={styles.profileImage}>
-          <img src={photo ? photo || user.profilePics : ""} alt="img" />{" "}
+          <img src={photo ? photo || user.profilePic : ""} alt="img" />{" "}
         </div>
         <h2 style={{ color: theme.theme == "dark" ? "white" : "black" }}>
           {" "}

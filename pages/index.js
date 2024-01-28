@@ -31,7 +31,7 @@ export default function Home() {
           id: localStorage.getItem("id"),
           name: localStorage.getItem("name"),
           emails: localStorage.getItem("email"),
-          profilePics: localStorage.getItem("photoUrl"),
+          profilePic: localStorage.getItem("photoUrl"),
           score: 0,
           time: 0,
         })
