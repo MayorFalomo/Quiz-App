@@ -104,7 +104,7 @@ const AllUsers = ({ user }) => {
     <div className={styles.userDataContainer}>
       <div className={styles.userData}>
         <div className={styles.userInfoArea}>
-          <span>{user.rank == 1 ? "🏆 " : `#${user.urank}`} </span>
+          <span>{user.rank == 1 ? "🏆 " : `#${user.rank}`} </span>
           <div
             style={{
               backgroundImage: user.profilePic ? `url(${user.profilePic})` : "",

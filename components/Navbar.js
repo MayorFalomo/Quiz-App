@@ -81,9 +81,9 @@ const Navbar = () => {
           <Link className={styles.links} href="./questions">
             Tests{" "}
           </Link>
-          {/* <Link className={styles.links} href="./leaderboard">
+          <Link className={styles.links} href="./leaderboard">
             leaderboard{" "}
-          </Link> */}
+          </Link>
           <Link className={styles.links} href="./about">
             About{" "}
           </Link>
